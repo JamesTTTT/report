@@ -1,18 +1,19 @@
 <?php
 namespace App\Card;
-use App\Card\Card;
+//use App\Card\Card;
 
 class Deck
 {
-    public $suits = array('Clubs', 'Diamonds', 'Hearts', 'Spades');
-    public $values = array('Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King');
+    public $suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+    // 'Jack', 'Queen', 'King'
+    public $values = [14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     public $deck = [];
 
     // method declaration
     public function __construct() {
-        foreach($suits as $suit){
-            foreach($values as $value){
-               array_push($this->$deck, new App/Card/Card($value, $suit));
+        foreach($this->suits as $suit){
+            foreach($this->values as $value){
+               array_push($this->deck, new Card($value, $suit));
             }
         }
     }

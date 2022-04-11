@@ -4,8 +4,14 @@
 {% block body %}
     <article class="content">
         <h1>Deck</h1>
-        <div class ="text-body">
-            <p>HELLO</p>
+        <div class ="deck-body">
+        {{ dump(_context) }}
+            {% for card in deck.deck %}
+            <div class="card-container">
+                {{card.getDetails()[1]}}
+                {{card.getDetails()[0]}}
+            </div>
+            {% endfor %}
         </div>
     </article>
 {% endblock %}

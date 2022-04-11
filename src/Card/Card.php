@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Card;
+
 class Card
 {
     private int $value;
@@ -15,6 +18,14 @@ class Card
         $cardArray = [$this->value,$this->suite];
         return $cardArray;
     }
+
+    // public function getValue() {
+    //     return $this->value;
+    // }
+
+    // public function getSuite() {
+    //     return $this->suite;
+    // }
 }
 
 ?>
