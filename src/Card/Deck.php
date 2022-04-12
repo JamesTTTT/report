@@ -4,19 +4,15 @@ namespace App\Card;
 
 class Deck
 {
-    // public $suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-    // // 'Jack', 'Queen', 'King'
-    // public $values = [14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    // public $card_count = 0;
+
+    public $suits = ['♣', '♦', '♥', '♠'];
+    public $values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     public $deck = [];
 
     // method declaration
     public function __construct() {
-        $suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-        // 'Jack', 'Queen', 'King'
-        $values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-        foreach($suits as $suit){
-            foreach($values as $value){
+        foreach($this->suits as $suit){
+            foreach($this->values as $value){
                array_push($this->deck, new Card($value, $suit));
             }
         }
@@ -48,16 +44,13 @@ class Deck
 
 class Deck2J extends Deck{
     public function __construct() {
-        $suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-        // 'Jack', 'Queen', 'King'
-        $values = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-        foreach($suits as $suit){
-            foreach($values as $value){
+        foreach($this->suits as $suit){
+            foreach($this->values as $value){
                array_push($this->deck, new Card($value, $suit));
             }
         }
-        array_push($this->deck, new Card(0, 'Joker'));
-        array_push($this->deck, new Card(0, 'Joker'));
+        array_push($this->deck, new Card(0, 'Joker','Joker'));
+        array_push($this->deck, new Card(0, 'Joker','Joker'));
     }
 }
 ?>

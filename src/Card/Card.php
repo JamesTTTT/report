@@ -15,7 +15,26 @@ class Card
 
     // gets the value and suite
     public function getDetails() {
-        $cardArray = [$this->value,$this->suite];
+        switch($this->value){
+            case 0:
+                $name = 'Joker';
+                break;
+            case 11:
+                $name = 'J';
+                break;
+            case 12:
+                $name = 'Q';
+                break;
+            case 13:
+                $name = 'K';
+                break;
+            case 14:
+                $name = 'A';
+                break;
+            default:
+                $name = $this->value;
+        }
+        $cardArray = [$this->value,$this->suite,$name];
         return $cardArray;
     }
 

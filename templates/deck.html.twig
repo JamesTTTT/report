@@ -4,12 +4,12 @@
 {% block body %}
     <article class="content">
         <h1>Deck</h1>
-        <div class ="deck-body">
         {{ dump(_context) }}
+        <div class ="deck-body">
             {% for card in deck.deck %}
             <div class="card-container">
                 {{card.getDetails()[1]}}
-                {{card.getDetails()[0]}}
+                {{card.getDetails()[2]}}
             </div>
             {% endfor %}
         </div>
