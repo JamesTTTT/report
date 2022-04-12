@@ -43,7 +43,7 @@ class Deck
     {
         $card_count = count($this->deck);
         $draw = [];
-        if ($card_count > 0) {
+        if ($card_count > $amount) {
             for ($x = 1; $x <= $amount; $x++) {
                 $cur = array_pop($this->deck);
                 array_push($draw, $cur);
@@ -56,7 +56,7 @@ class Deck
     }
 }
 
-class Deck2J extends Deck
+class Deck2 extends Deck
 {
     public function __construct()
     {

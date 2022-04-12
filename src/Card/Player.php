@@ -19,6 +19,6 @@ class Player
 
     public function showHand()
     {
-        return $hand;
+        return this->hand;
     }
 }

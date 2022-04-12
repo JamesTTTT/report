@@ -37,7 +37,7 @@ class CardController extends AbstractController
      */
     public function deck2(): Response
     {
-        $deck = new \App\Card\Deck2J();
+        $deck = new \App\Card\Deck2();
         $data = [
             'title' => 'Deck',
             'deck' => $deck
