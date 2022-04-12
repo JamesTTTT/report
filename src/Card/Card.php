@@ -8,14 +8,16 @@ class Card
     private string $suite;
 
     // Claass constructor for cards
-    public function __construct($value, $suite){
+    public function __construct($value, $suite)
+    {
         $this->value = $value;
         $this->suite = $suite;
     }
 
     // gets the value and suite
-    public function getDetails() {
-        switch($this->value){
+    public function getDetails()
+    {
+        switch ($this->value) {
             case 0:
                 $name = 'Joker';
                 break;
@@ -37,7 +39,4 @@ class Card
         $cardArray = [$this->value,$this->suite,$name];
         return $cardArray;
     }
-
 }
-
-?>

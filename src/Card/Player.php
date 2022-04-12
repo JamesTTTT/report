@@ -10,13 +10,15 @@ class Player
     //     $this->hand = $hand;
     // }
 
-    public function dealPlayer(array $draw){
-        foreach( $draw as $i){
+    public function dealPlayer(array $draw)
+    {
+        foreach ($draw as $i) {
             array_push($this->hand, $i);
         }
     }
 
-    public function showHand(){
+    public function showHand()
+    {
         return $hand;
     }
 }
