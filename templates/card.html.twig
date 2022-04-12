@@ -7,9 +7,10 @@
         <div class ="text-body">
             <ul>
                 <li><a href="{{ url("deck") }}">Deck of cards</a></li>
+                <li><a href="{{ url("deck2") }}">Deck of cards with jokers</a></li>
                 <li><a href="{{ url("shuffle") }}">Shuffle the cards</a></li>
                 <li><a href="{{ url("draw") }}">Draw a card</a></li>
-                <li><a href="{{ url("card") }}">Card</a></li>
+                <li><a href="{{ path("deal-player", {players: 2, cards: 4}) }}">Deal 4 cards to 2 Players</a></li>
             </ul>
         </div>
     </article>

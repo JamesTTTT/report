@@ -19,13 +19,6 @@ class Card
         return $cardArray;
     }
 
-    // public function getValue() {
-    //     return $this->value;
-    // }
-
-    // public function getSuite() {
-    //     return $this->suite;
-    // }
 }
 
 ?>

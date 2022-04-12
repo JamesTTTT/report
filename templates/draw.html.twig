@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+{% block title %}Draw{% endblock %}
+
+{% block body %}
+    <article class="content">
+        <h1>Draw</h1>
+        <div class ="deck-body">
+        {{ dump(_context) }}
+        {% for card in draw %}
+            <div class="card-container">
+                {{card.getDetails()[1]}}
+                {{card.getDetails()[0]}}
+            </div>
+            {% endfor %}
+            <p>Cards left: </p>{{cardsLeft}}
+        </div>
+    </article>
+{% endblock %}

@@ -8,11 +8,12 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 }
 
 .content{
     padding: 2em 25%;
-
+    min-height: 600px;
 }
 
 .nav li{
