@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+{% block title %}Game{% endblock %}
+
+{% block body %}
+    <article class="content">
+        <h1>Card Game 21</h1>
+        <h3>Shuffle the cards first to create deck</h3>
+        <div class ="text-body">
+            <ul>
+                <li><a href="{{ url("play") }}">Play Game</a></li>
+                
+            </ul>
+        </div>
+    </article>
+{% endblock %}
