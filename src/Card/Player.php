@@ -21,4 +21,12 @@ class Player
     {
         return this->hand;
     }
+
+    public function handValue(){
+        $total = 0;
+        foreach ($this->hand as $card){
+            $total += $card->getDetails()[0];
+        }
+        return $total;
+    }
 }

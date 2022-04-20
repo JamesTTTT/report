@@ -5,8 +5,46 @@
     <article class="content">
         <h1>Play</h1>
         <h3>Game session</h3>
+        {{ dump(_context) }}
         <div class ="text-body">
 
         </div>
+    <div class ="deck-body">
+    <h1>Your hand</h1>
+    {% for card in playerHand %}
+        <div class="card-container">
+            {{card.getDetails()[1]}}
+            {{card.getDetails()[2]}}
+        </div>
+    {% endfor %}
+    <h1>Bank hand</h1>
+    {% for card in bankHand %}
+    <div class="card-container">
+        {{card.getDetails()[1]}}
+        {{card.getDetails()[2]}}
+    </div>
+    {% endfor %}
+    </div>
+    <h1>Your Value: {{ playerHandVal }}</h1>
+    <h1>Bank Value: {{ bankHandVal }}</h1>
+<form method="post">
+    <fieldset>
+    <legend>Card hand</legend>
+
+    <p>
+        <input type="submit" name="draw" value="Draw">
+        <input type="submit" name="ready" value="Ready">
+        <input type="submit" name="reset" value="Reset">
+    </p>
+
+    {% for message in app.flashes('info') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    </fieldset>
+</form>
+
     </article>
 {% endblock %}

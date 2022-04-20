@@ -4,12 +4,20 @@
 {% block body %}
     <article class="content">
         <h1>Card Game 21</h1>
-        <h3>Shuffle the cards first to create deck</h3>
         <div class ="text-body">
             <ul>
                 <li><a href="{{ url("play") }}">Play Game</a></li>
                 
             </ul>
         </div>
+        <h1>Dokumentation</h1>
+        <h3>Regler</h3>
+        <p>Klicka på play game för att starta spelet. För att dra ett kort klicka på ’Draw’ för att dra ett kort. Du ska försöka få upp ditt värde så nära 21 som möjligt utan att gå över för då har du förlorat. När du är nöjd med ditt värde klickar du på ’Ready’ knappen och då kommer banken dra sina kort. Om både du och banken har under 21 så vinner den som har närmst 21, om någon av er går över 21 vinner den som har under 21, om det är lika så vinner banken och om båda går över 21 förlorar ni båda två. Efter du har klickat ’ready’ kan man klicka reset för att starta om spelet.</p>
+        <h3>Flödeschema</h3>
+        <img src="img/flow.png" alt="Flowchart">
+        <h3>Psuedokod</h3>
+        <p>KOD</p>
+        <h3>Klasser</h3>
+        <p>Jag behöver alla klasserna jag skapade i förgående kmom02 alltså Card, Deck och Player. Card och Deck behövs för själva kortleken och jag tänker att jag skapar två player objekt en som håller koll på spelarens hand och en till banken. Card klassen representera ett kort med ett värde och en svit , Deck klassen innehåller 52 card objekt i en array och Player klassen representerar en spelare och håller koll på spelarens hand. Jag skapar en ny klass som kallas game som representera spelet och innehåller metoder som gör så att spelet fungerar.</p>
     </article>
 {% endblock %}
