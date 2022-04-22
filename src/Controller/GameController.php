@@ -9,14 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class GameController extends AbstractController
 {
     /**
      * @Route("/game", name="game")
      */
     public function game(): Response
-    {   
+    {
         // session_destroy();
         return $this->render('game.html.twig', [
         ]);
@@ -26,11 +25,11 @@ class GameController extends AbstractController
      * @Route("/game/play", name="play", methods={"GET","HEAD"})
      */
     public function play(SessionInterface $session): Response
-    {   
+    {
         $player = $session->get("player") ?? new \App\Card\Player();
         $bank = $session->get("bank") ?? new \App\Card\Player();
         $deck = $session->get("deck") ?? new \App\Card\Deck();
-        $game = $session->get("game") ?? new \App\Card\Game($player,$bank);
+        $game = $session->get("game") ?? new \App\Card\Game($player, $bank);
         $deck->shuffleDeck();
 
         $session->set('deck', $deck);
@@ -50,11 +49,10 @@ class GameController extends AbstractController
     /**
      * @Route("/game/play", name="play-process", methods={"POST"})
      */
-    function process(
+    public function process(
         Request $request,
         SessionInterface $session
     ): Response {
-
         $draw  = $request->request->get('draw');
         $ready = $request->request->get('ready');
         $reset = $request->request->get('reset');
@@ -64,19 +62,18 @@ class GameController extends AbstractController
         $deck = $session->get("deck");
         $game = $session->get("game");
 
-        if($draw){
+        if ($draw) {
             $drawnCard = $deck->drawCard(1);
             $player->dealPlayer($drawnCard);
-        } 
-        elseif ($ready){
-            $drawCount = rand(0,3);
+        } elseif ($ready) {
+            $drawCount = rand(0, 3);
             for ($x = 0; $x <= $drawCount; $x++) {
                 $drawnCard = $deck->drawCard(1);
                 $bank->dealPlayer($drawnCard);
-              }
+            }
             // $game->compare();
             $this->addFlash("info", "Game status: " . $game->compare());
-        } elseif ($reset){
+        } elseif ($reset) {
             $session->clear();
         }
 

@@ -16,7 +16,7 @@ class JsonApiController extends AbstractController
     public function apiDeck(): Response
     {
         $deck = new \App\Card\Deck();
-        
+
 
         $data = [
             'title' => 'Deck',
@@ -25,8 +25,8 @@ class JsonApiController extends AbstractController
 
         $response = new JsonResponse([ $data ]);
 
-        $response->setEncodingOptions( $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
-        
+        $response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
         return $response;
     }
 }

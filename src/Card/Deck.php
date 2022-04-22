@@ -26,9 +26,9 @@ class Deck
     }
 
     public function showCards()
-    {   
+    {
         $cards = [];
-        foreach($this->deck as $card){
+        foreach ($this->deck as $card) {
             array_push($cards, $card->getDetails());
         }
         return $cards;

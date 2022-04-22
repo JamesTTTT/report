@@ -134,4 +134,3 @@ class CardController extends AbstractController
         return $this->render('deal.html.twig', $data);
     }
 }
-
