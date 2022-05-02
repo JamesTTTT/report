@@ -96,7 +96,10 @@
         "phpmd": "tools/phpmd/vendor/bin/phpmd src text phpmd.xml || true",
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 9 src || true",
         "phpcpd": "tools/phpcpd/vendor/bin/phpcpd src || true",
-        "phpunit": "XDEBUG_MODE=coverage bin/phpunit",
+        "phpunit": [
+            "@putenv XDEBUG_MODE=coverage",
+            "php bin/phpunit"
+        ],
         "lint": [
             "@phpcpd",
             "@phpmd",
