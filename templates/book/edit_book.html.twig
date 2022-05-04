@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %}edit_book{% endblock %}
+
+{% block body %}
+        {# {{ dump(_context) }} #}
+    <article class="content">
+        <h1>create book</h1>
+        <div class ="create">
+            <form method="POST">
+
+              <label for="title">Book Title:</label><br>
+              <input type="text" id="title" name="title" value="{{book.title}}" required><br>
+
+              <label for="forfattare">Author:</label><br>
+              <input type="text" id="forfattare" name="forfattare" value="{{book.forfattare}}" required><br>
+
+              <label for="ISBN">Enter ISBN:</label><br>
+              <input type="text" id="ISBN" name="ISBN" value="{{book.ISBN}}" required><br>
+
+              <label for="url">Enter image url:</label><br>
+              <input type="text" id="url" name="url" value="{{book.image}}" required><br>
+              
+              <input type="submit" name="create" value="Update">
+            </form>
+        </div>
+    </article>
+{% endblock %}

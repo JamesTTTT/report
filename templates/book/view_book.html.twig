@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+{% block title %}content_book{% endblock %}
+
+{% block body %}
+    <article class="content">
+        <h1>{{book.title}}</h1>
+        <h3>Author: {{book.forfattare}}</h3>
+        <h3>ISBN: {{book.ISBN}}</h3>
+        <img width="200" src="{{book.image}}">
+    </article>
+{% endblock %}

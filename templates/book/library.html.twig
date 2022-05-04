@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LibraryController!{% endblock %}
+
+{% block body %}
+    <article class="content">
+        <h1>Library</h1>
+        <h3>Options</h3>
+        <div class ="text-body">
+            <ul>
+                <li><a href="{{ url("create_book") }}">create book</a></li>
+                {# <li><a href="{{ url("create_book") }}">edit book</a></li>
+                <li><a href="{{ url("create_book") }}">delete book</a></li> #}
+                <li><a href="{{ url("read_book") }}">view books</a></li>
+            </ul>
+        </div>
+    </article>
+{% endblock %}

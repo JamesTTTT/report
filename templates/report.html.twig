@@ -24,12 +24,22 @@
     
     <section>
     <h2>Kmom03</h2>
-    <p>Här är redovisningstexten</p>
+    <p>Jag skapade spelet 21 utifrån dem spelreglerna som stog på dbwebb.</p>
+    <p>Det kändes lite jobbigt att modellera ett kort spel med psuedokod och flödediagram eftersom det är något jag har väldigt lite erfarenhet med och behöver jobba mer med i framtiden för att komma in i processen. I nuläget visste jag inte rikgtigt vart jag skulle börja eller vad som behövdes för att få spelet att fungera. Min kod skiljer sig lite ifrån det jag gjorde i min planering vilket kan bero på att jag inte hade den mest uttänkta lösningen redan i början. Jag vill gärna fortsätta med att jobba på detta vis då man kan komma igång med koden direkt och man har en lite klarare ide på man ska sätta ihop saker och ting när man har planerat i förväg. Att göra på detta vis känns som det hade varit smidigare med ett större projekt som har potential att expandera då att göra ett simpelt kortspel kändes lite enkelt för en planering med schema och psuedokod. </p>
+    <p>Jag är relativt nöjd med det jag har skapat. Jag började med att googla exempel på flödeschema och psuedokod så jag kunde exekvera den delen av uppgiften på ett smidigare sätt. För själva koden så använde jag fyra olika klasser Crad, Deck, Player och en ny som kallas Game. Jag gjorde ett Deck objekt som innehöll 52 Card objekt och sedan använde shuffle metoden för att blanda kortleken. Jag skapa två player objekt en till banken och en till självaste spelaren. Player objektet håller koll på handen med kort. Game objektet representera spelet och tar två parameter i sin konstruktion en till banken och en till spelaren. Game objektets jobb är att jämföra värdet på båda spelarnas hand för att sedan berätta vem som vann rundan. På spelplanen finns det tre knappar en draw, en ready och en restart. Draw knappen drar korten till spelarens hand, ready knappen betyder att man är redo och då är det bankens tur att dra kort och restart knappen starta om sessionen. När banken har dragit sina kort jämförs det med spelaren och ett litet meddelande poppar upp i botten som berättar vem som van rundan. Jag ser lite potential att förbättra bankens ai vart den kan dra kort baserat på sannolikhet och jag tycker att min session get och set är lite röriga. </p>
+    <p>Jag tycker faktiskt om symfony och jar börjat uppskatta php mer nu när man förstå programmering lite bättre än när vi hade webtec kursen. Symfony är inte särskillt komplicerat och det kan som det är lätt att bygga komplicerade saker i det. Jag tycker med om twig då det gör front end väldigt smidigt då man skapar templates så man inte behöver skriva om mycket kod.</p>
+    <p>Mitt today i learned för kmom03 är att använda session request med html inputs för att exekvera delar av koden i kontrollern. Jag har med lärt mig hur man använder flödesdiagram och psudokod för att planera lösningar. </p>
     </section>
     
     <section>
     <h2>Kmom04</h2>
-    <p>Här är redovisningstexten</p>
+    <p>Phpunit är väldigt likt unit testerna vi gjorde i oopython kursen, så jag tog lite från vad vi lärde oss i den kursen för att lösa denna uppgift. Jag föredrar phpunit till det vi gjorde i python för med phpunit fick man en bättre rapport över det vi gjorde. Mitt ända problem med phpunit var att i terminalen skrev den inte ut all info jag behövde ibland när ett test gick fel. Jag hade mycket bekymmer att få xdebug att fungera nästan så att felsöka det tog nästan lika lång tid som att göra själva uppgiften. </p>
+    <p>Min kodtäckning varierade lite beroende på klass men jag är nöjd då vissa metoder inte var särskilt komplicerade och behövde inte riktigt testas. Det hade inte varit omöjligt för mig att nå upp till 100% men kände att testa varenda liten grej inte var nödvändigt. </p>
+    <p>Jag hade inga svårigheter med att testa min kod. Det var bara en gång vart jag behövde skapa en ny metod för att göra koden mer testbar men annars var det inga problem. </p>
+    <p>Jag fick skapade en metod till deck klassen som visar alla korten som objekt i stället för att returnera kortens attribut. Annars räkte den koden jag redan hade för att testa spelets klasser. Om jag skulle skrivit om koden lite så skulle jag gjort min gameklass lite lättare att testa då den returnera bara strings. </p>
+    <p>Jag tycker att testbar kan vara snyggt om man det inte blir överdrivet många ”onödiga” metoder. Om man behöver testa kod kan det bli så att man lägger till fler metoder som gör så att det blir enklare att testa men har ingen riktigt användning annars. Om man vill ha både ren och testbar kod tycker jag att man ska ta det i åtanke redan innan man börja programmera så att man kan planera metoder som är testbara från första början så man inte behöver komplettera efterhand.</p>
+    <p>Min til för detta kmom är att dokumentera kod med symfony och göra unitesting med php</p>
+
     </section>
     
     <section>
