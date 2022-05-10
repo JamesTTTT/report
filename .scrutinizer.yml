@@ -1,35 +1,27 @@
-imports:
-    - php
-
+build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+                    - js-scrutinizer-run
+        tests: true
 filter:
     excluded_paths:
+        - 'tests/*'
         - 'bin/*'
         - 'tools/*'
         - '*.min.js'
         - '*/vendor/*'
         - 'build/*'
-        - 'src/kernel.php'
     dependency_paths:
         - 'tools/*'
-build:
-    nodes:
-        my-tests:
-            environment:
-                php:
-                    version: 8.0.9
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
-    tests:
-        override:
-            -
-                # command: "composer phpunit"
-                command: "XDEBUG_MODE=coverage vendor/bin/phpunit src"
-                coverage:
-                    file: "build/coverage.clover"
-                    format: "php-clover"
-
 checks:
     php: true
     javascript: true
