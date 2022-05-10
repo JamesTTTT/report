@@ -19,7 +19,7 @@ class Player
 
     public function showHand()
     {
-        return this->hand;
+        return $this->hand;
     }
 
     public function handValue()

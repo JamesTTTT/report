@@ -25,7 +25,8 @@ class Deck
         return $this->deck;
     }
 
-    public function showCardObj(){
+    public function showCardObj()
+    {
         $cards = [];
         foreach ($this->deck as $card) {
             array_push($cards, $card);

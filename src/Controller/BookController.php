@@ -67,8 +67,8 @@ class BookController extends AbstractController
         $books = $bookRepository->findAll();
         // $JSON = $this->json($books);
         $data = [
-            'title'=>'read_books',
-            'books'=> $books
+            'title' => 'read_books',
+            'books' => $books
 
         ];
         return $this->render('book/read_book.html.twig', $data);
@@ -83,8 +83,8 @@ class BookController extends AbstractController
     ): Response {
         $book = $bookRepository->find($id);
         $data = [
-            'title'=>'view_books',
-            'book'=> $book
+            'title' => 'view_books',
+            'book' => $book
         ];
 
         return $this->render('book/view_book.html.twig', $data);

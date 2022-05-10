@@ -37,8 +37,8 @@ class GameController extends AbstractController
         $session->set('bank', $bank);
         $session->set('game', $game);
         $data = [
-            'title'=>'game21',
-            'playerHandVal'=> $player->handValue(),
+            'title' => 'game21',
+            'playerHandVal' => $player->handValue(),
             'playerHand' => $player->hand,
             'bankHandVal' => $bank->handValue(),
             'bankHand' => $bank->hand,
