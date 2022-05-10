@@ -6,7 +6,7 @@
     "description": "Some description will be useful too!",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0.1",
+        "php": ">=8.0.9",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/annotations": "^1.0",
