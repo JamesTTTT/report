@@ -3,7 +3,6 @@ imports:
 
 filter:
     excluded_paths:
-        - 'tests/*'
         - 'bin/*'
         - 'tools/*'
         - '*.min.js'
