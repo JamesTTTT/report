@@ -17,11 +17,13 @@
     <h4>Cohesion</h4>
     <p>Cohesion talar om for oss hur stark relation saker innuti en klass har. Cohesion ökar om metoder inom en klass har mycket gemensamma funktionaliteter, Alltså om man har metoder inom en klass som har svag cohesion och bör de delas upp i olika klasser. Högre cohesion reducera kod komplexitet, höjer hållbarheten och tillåter klassen att vara mer återanvändbar.</p>
     <h4>Coupling</h4>
-    <p>Coupling kollar hur självständig klassen är och hur beroende andra klasser är av klassen. Låg coupling betyder oftast hög cehsion och vice versa. Man vill sträva efter låg coupling tillsammans med hög cohesion.  </p>
+    <p>Coupling kollar hur självständig klassen är och hur beroende andra klasser är av klassen. Låg coupling betyder oftast hög cehsion och vice versa. Man vill sträva efter låg coupling tillsammans med hög cohesion för att få ut bättre kod prestanda.  </p>
     </section>
     <section>
     <h2>Phpmetrics</h2>
-    <p>Text Goes Here...</p>
+    <p>På översiktsidan fick jag syn på min ”Maintainability / complexity” graf då jag hade några röda cirklar som man vill helst undvika. Klasserna som stog ut mest var Card , Deck och särskillt Game med högst complexity med minst maintainability. Anledningen till att Game klassen är så complex är för att den har så många if-satser för att räkna ut alla möjliga resultat spelet kan ha.</p>
+    <p>Om vi tittar på coupling så kan vi se att Deck är klassen som ligger längst upp på den listan med fyra afferent coupling (ingående kopplingar) och en efferent coupling (utgående kopplingar). Detta beror på att Deck är väldigt beroende av Card klassen och Deck2 klassen är väldigt beroende av Deck.</p>
+    <p>Average LCOM (lack of cohesion of methods) var 1.18 och alla klasserna utom controllers hade 1 i LCOM. Man vill ha låg LCOM för att undvika besvär.</p>
     </section>
     <section>
     <h2>Scrutinizer</h2>
