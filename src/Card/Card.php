@@ -19,7 +19,7 @@ class Card
     {
         switch ($this->value) {
             case 0:
-                $name = 'Joker';
+                $name = 'Jk';
                 break;
             case 11:
                 $name = 'J';
