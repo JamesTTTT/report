@@ -6,10 +6,6 @@ class Player
 {
     public $hand = [];
 
-    // public function __construct(){
-    //     $this->hand = $hand;
-    // }
-
     public function dealPlayer(array $draw)
     {
         foreach ($draw as $i) {

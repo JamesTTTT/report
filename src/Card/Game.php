@@ -7,32 +7,42 @@ class Game
     public $player;
     public $bank;
 
-    public function __construct($you, $thebank)
+    public function __construct($player, $bank)
     {
-        $this->player = $you;
-        $this->bank = $thebank;
+        $this->player = $player;
+        $this->bank = $bank;
+    }
+
+    function getVal(){
+        $player = $this->player;
+        $bank = $this->bank;
+
+        $pval = $player->handValue();
+        $bval = $bank->handValue();
+
+        $res = [$pval, $bval];
+
+        return $res;
     }
 
     public function compare()
-    {
-        $p = $this->player;
-        $b = $this->bank;
+    {   
 
-        $pval = $p->handValue();
-        $bval = $b->handValue();
+        $val = $this->getVal();
+        $pval = $val[0];
+        $bval = $val[1];
 
+        $message = "BUST YOUR BOTH OVER 21";
         if ($pval < 21 && $bval < 21) {
+            $message = "YOU LOSE // BANK WINS!!";
             if ($pval > $bval) {
                 $message = "BANK LOSE // YOU WIN!!";
-            } else {
-                $message = "YOU LOSE // BANK WINS!!";
             }
         } elseif ($pval > 21 && $bval < 21) {
             $message = "YOUR OVER 21 // BANK WINS!!";
         } elseif ($pval < 21 && $bval > 21) {
             $message = "BANK OVER 21 // YOU WIN!!";
         }
-        $message = "BUST YOUR BOTH OVER 21";
         return $message;
     }
 }

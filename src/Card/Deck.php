@@ -58,7 +58,6 @@ class Deck
                 array_push($draw, $cur);
             }
         }
-        $draw = null;
         // $this->card_count = $this->card_count -$amount;
         return $draw;
     }
