@@ -108,10 +108,11 @@ class CardController extends AbstractController
     /**
      * @Route("/card/deck/deal/{players}/{cards}", name="deal-player", methods={"GET","POST"})
      */
-    public function dealPlayer(SessionInterface $session, int $cards, array $players): Response
+    public function dealPlayer(SessionInterface $session, int $cards, int $players): Response
     {
 
         foreach (range(1, $players) as $num) {
+            $curPlayers = [];
             $player = new \App\Card\Player();
             $deck = $session->get("deck") ?? 0;
             $cardCount = $session->get("cardsLeft") ?? 0;
@@ -120,11 +121,11 @@ class CardController extends AbstractController
             $player->dealPlayer($draw);
             $session->set('deck', $deck);
             $session->set('cardsLeft', $cardsLeft);
-            array_push($players, $player);
+            array_push($curPlayers, $player);
         }
         $data = [
             'title' => 'player',
-            'players' => $players,
+            'players' => $curPlayers,
             'cardsleft' => $cardsLeft
         ];
 
