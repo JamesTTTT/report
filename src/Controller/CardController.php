@@ -110,9 +110,8 @@ class CardController extends AbstractController
      */
     public function dealPlayer(SessionInterface $session, int $cards, int $players): Response
     {
-
+        $curPlayers = [];
         foreach (range(1, $players) as $num) {
-            $curPlayers = [];
             $player = new \App\Card\Player();
             $deck = $session->get("deck") ?? 0;
             $cardCount = $session->get("cardsLeft") ?? 0;
