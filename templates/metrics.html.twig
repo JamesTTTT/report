@@ -4,14 +4,37 @@
 {% block body %}
     
 <article class="content">
-    <h1>Metrics</h1>
     <section>
-    <h3>Introduction</h3>
+    <h2>Introduktion</h2>
+    <h4>Coverage</h4>
+    <p>Code Coverage är ett procentuellt mått som mäter hur mycket av din kod som testas. Om en stor mängd av din kod testas så betyder det att du har hög coverage och riskerar att inte ha gömda buggar i koden. </p>
+    <h4>Complexity</h4>
+    <p>Complexity är precis vad det låter, det kollar hur komplex koden är. Complexity mätts i en skala mellan ett och tio. Hur komplicerad koden är räknas ut av ett antal måttsystem, här är några exempel:</p>
+    <p>Source Lines of Code (SLOC) – Detta räknar antal rader i koden</p>
+    <p>Cyclomatic Complexity – Detta håller koll på kontrollflödet inom ett program. Den gör det genom att mäta alla unika sökvägar i koden som bildas av varje If-sats, while och for-loop.</p>
+    <p>Halstead Volume – Detta håller koll på alla variabler i koden som används och hur ofta</p>
+    <p>Maintability Index – Detta räknar ut i poäng hur hållbar koden är. Den jämför Cyclomatic Complexity och Halstead Volume mot antal rader i koden.</p>
+    <h4>Cohesion</h4>
+    <p>Cohesion talar om for oss hur stark relation saker innuti en klass har. Cohesion ökar om metoder inom en klass har mycket gemensamma funktionaliteter, Alltså om man har metoder inom en klass som har svag cohesion och bör de delas upp i olika klasser. Högre cohesion reducera kod komplexitet, höjer hållbarheten och tillåter klassen att vara mer återanvändbar.</p>
+    <h4>Coupling</h4>
+    <p>Coupling kollar hur självständig klassen är och hur beroende andra klasser är av klassen. Låg coupling betyder oftast hög cehsion och vice versa. Man vill sträva efter låg coupling tillsammans med hög cohesion.  </p>
+    </section>
+    <section>
+    <h2>Phpmetrics</h2>
     <p>Text Goes Here...</p>
     </section>
     <section>
-    <h3>part2</h3>
+    <h2>Scrutinizer</h2>
     <p>Text Goes Here...</p>
     </section>
+    <section>
+    <h2>Förbättringar</h2>
+    <p>Text Goes Here...</p>
+    </section>
+    <section>
+    <h2>Diskussion</h2>
+    <p>Text Goes Here...</p>
+    </section>
+
 </article>
 {% endblock %}

@@ -2,22 +2,14 @@ imports:
     - php
 
 filter:
-    excluded_paths:
-        - 'test/*'
-        - 'bin/*'
-        - 'tools/*'
-        - '*.min.js'
-        - '*/vendor/*'
-        - 'build/*'
-        - 'src/kernel.php'
-    dependency_paths:
-        - 'tools/*'
+    excluded_paths: [vendor/*, test/*]
+
 build:
     nodes:
         my-tests:
             environment:
                 php:
-                    version: 8.0.9
+                    version: 8.1
         analysis:
             tests:
                 override:
@@ -26,18 +18,7 @@ build:
         override:
             -
                 # command: "composer phpunit"
-                command: "XDEBUG_MODE=coverage vendor/bin/phpunit src"
+                command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
                     file: "build/coverage.clover"
                     format: "php-clover"
-
-checks:
-    php: true
-    javascript: true
-coding_style:
-    php:
-        spaces:
-            around_operators:
-                bitwise: false
-            other:
-                after_type_cast: false
