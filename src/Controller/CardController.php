@@ -108,8 +108,9 @@ class CardController extends AbstractController
     /**
      * @Route("/card/deck/deal/{players}/{cards}", name="deal-player", methods={"GET","POST"})
      */
-    public function dealPlayer(SessionInterface $session, int $cards, int $players): Response
+    public function dealPlayer(SessionInterface $session, int $cards, array $players): Response
     {
+
         foreach (range(1, $players) as $num) {
             $player = new \App\Card\Player();
             $deck = $session->get("deck") ?? 0;

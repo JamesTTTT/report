@@ -57,9 +57,8 @@ class Deck
                 $cur = array_pop($this->deck);
                 array_push($draw, $cur);
             }
-        } else {
-            $draw = null;
         }
+        $draw = null;
         // $this->card_count = $this->card_count -$amount;
         return $draw;
     }
