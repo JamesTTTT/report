@@ -24,11 +24,11 @@ class GameTest extends TestCase
         $draw = $deck->drawCard(1);
         $player->dealPlayer($draw);
 
-        $draw = $deck->drawCard(1);
+        $draw = $deck->drawCard(5);
         $bank->dealPlayer($draw);
 
         $res = $game->compare();
-        $message = "BANK LOSE // YOU WIN!!";
+        $message = "BANK OVER 21 // YOU WIN!!";
         $this->assertEquals($res, $message);
     }
 }
