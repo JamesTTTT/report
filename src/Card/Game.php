@@ -35,13 +35,14 @@ class Game
         $bval = $val[1];
 
         $message = "BUST YOUR BOTH OVER 21";
-        if ($pval < 21 && $bval < 21 && $pval > $bval) {
-            $message = "BANK LOSE // YOU WIN!!";
-        } elseif ($pval < 21 && $bval < 21 && $pval < $bval){
+        if ($pval < 21 && $bval < 21) {
             $message = "YOU LOSE // BANK WINS!!";
-        } elseif ($pval > 21 && $bval < 21) {
+            if ($pval > $bval) {
+                $message = "BANK LOSE // YOU WIN!!";
+            }
+        } elseif ($bval < 21) {
             $message = "YOUR OVER 21 // BANK WINS!!";
-        } elseif ($pval < 21 && $bval > 21) {
+        } elseif ($pval < 21) {
             $message = "BANK OVER 21 // YOU WIN!!";
         }
         return $message;
