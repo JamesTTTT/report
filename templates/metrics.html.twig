@@ -38,16 +38,66 @@
     <p>Förbättringarna jag tänker utföra är: </p>
 
     <ul>
-        <li>Optimisterna Game::compare() genom att minska antalet conditions för att sänka complexity. Jag tror att detta kommer höja mitt scrutinizer betyg och förhoppningsvis ge klassen mer maintainabiliy.</li>
-        <li>Optimisterna Card::getDetails() genom att sänka antalet cases i switch casen för att sänka complexity. Jag tror att detta kommer ge mig bättre betyg i scrutinizer.</li>
-        <li>Öka coverage för klassen Deck och Cards för att dem två klasserna har minst. Jag kommer skapa tester för metoder som saknar. Detta kommer antagligen höja min coverage på dessa klasser</li>
-        <li>Laga buggarna och ta bort den onödiga koden som scrutinizer påpekade för att höja betyget</li>
+        <li>Optimisterna Game::compare() genom att ta bort onödiga conditions för att sänka complexity. Jag tror att detta kommer höja mitt scrutinizer betyg och förhoppningsvis ge klassen mer maintainabiliy.</li>
+        <li>Optimisterna Card::getDetails() genom att dela upp metoden i två olika metoder för att sänka complexity. Jag tror att detta kommer ge mig bättre betyg i scrutinizer.</li>
+        <li>Öka coverage för alla klasser så att jag kan nå 100% coverage. Jag kommer skapa tester för metoder som saknar. Detta kommer antagligen höja min coverage.</li>
+        <li>Laga buggarna och ta bort den onödiga koden som scrutinizer påpekade på issues sidan för att höja betyget.</li>
     </ul>
-
+    <h4>Efter ändringarna: </h4>
+    <p>I scrutinizer fick jag betydligt bätte mätvärden efter att jag implementerade dessa förbättringar. Mitt scrutinizer poäng gick från 9.87 till 10 då jag sänkte komplexiteten av metoderna Card::getDetails() och Game::compare() genom att splittra dem till mindre metoder. Alla mina issues från issues sidan försvann förutom kernal.php vilket jag inte kan göra så mycket åt. Min coverage på mappen vart jag har mina klasser gick från 73.81% till 100% då jag gjorde nya tester som testade kod som tidigare inte hade tester. I PHPmetrics står det att complexity har sänkts lite och maintainability har höjts lite men annars är statistiken lik hur den var innan ändringarna.</p>
+    <div class="kmom06img">
+    <img src="img/kmom06/9.png" width="300" alt="coverage">
+    <p>Scrutinizer betyg innan förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/10.png" width="350" alt="coverage">
+    <p>Scrutinizer betyg efter förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/oldCov.png" width="600" alt="coverage">
+    <p>Kod coverage innan förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/100.png" width="800" alt="coverage">
+    <p>Kod coverage efter förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/issues.png" width="900" alt="coverage">
+    <p>Issues innan förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/no_issues.png" width="900" alt="coverage">
+    <p>Issues efter förbättringar</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/chnages.png" width="400" alt="coverage">
+    <p>Scrutinizer change log</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/minus_complexity.png" width="1000" alt="coverage">
+    <p>PHPmetrics ändringar i komplexitet</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/compare.png" width="800" alt="coverage">
+    <p>min compare metod innan</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/comparenu.png" width="800" alt="coverage">
+    <p>min compare metod nu</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/card.png" width="800" alt="coverage">
+    <p>min getDetails metod innan</p>
+    </div>
+    <div class="kmom06img">
+    <img src="img/kmom06/nugetdetails.png" width="800" alt="coverage">
+    <p>min getDetails metod nu</p>
+    </div>
     </section>
     <section>
     <h2>Diskussion</h2>
-    <p>Text Goes Here...</p>
+    <p>Efter att jag fått rapporter över min kod på både scrutinizer och PHPmetrics har jag försökt mitt bästa att optimisterna den. Jag hade två metoder Card::getDetails() och Game::compare() med lite hög complexity. För att sänka complexity i dessa metoder tog jag bort onödiga conditions som gjorde inget och jag splittrade upp metoderna till mindre metoder som var lättare att förstå. Jag löste alla issues som scrutinizer påpekade åt mig. Jag skapade tester till alla metoder som saknades för att nå 100% coverage på min kod.p>
+    <p>Jag tycker att Scrutinizer och PHPmetrics ger bra feedback på sin kod och hur man kan höja kodkvalitén. Detta är något man vill lägga tid på och göra då man vill att sin kod ska vara så läsbar som möjligt för inte bara andra utvecklare men sig själv också. Om sin kod består av stora metoder med många conditions kan det vara svårt att hålla koll på hur saker fungera då är det viktigt att man läser feedbacken från dessa kodhjälpare. Stora komplexa metoder och klasser blir ofta svåra att återanvända och då kan det hjälpa att dela upp sin kod. Man kan ofta ha onödig kod som gör inget annat än att sänka kodkvalite och göra koden svårare att förstå. Den enda nackdelen jag kan komma på med att analysera sin kod på detta vis är att det tar väldigt lång tid som man vill lägga på annat, annars skulle jag säga att det är helt värt det. Jag kommer ta lärdomen att minska sina metoder och klasser till framtida arbeten. </p>
     </section>
 
 </article>
