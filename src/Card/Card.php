@@ -15,6 +15,7 @@ class Card
     }
 
     private function addNames($val){
+        $name = "";
         switch ($val) {
             case 0:
                 $name = 'Jk';
