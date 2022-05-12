@@ -72,7 +72,7 @@ class Deck2 extends Deck
                 array_push($this->deck, new Card($value, $suit));
             }
         }
-        array_push($this->deck, new Card(0, 'Joker', 'Joker'));
-        array_push($this->deck, new Card(0, 'Joker', 'Joker'));
+        array_push($this->deck, new Card(0, 'Joker'));
+        array_push($this->deck, new Card(0, 'Joker'));
     }
 }

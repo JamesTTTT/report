@@ -40,7 +40,7 @@ class Card
     {
         $name = $this->value;
         
-        if($name > 10) {
+        if($name > 10 || $name === 0) {
             $name = $this->addNames($this->value);
         }
 
