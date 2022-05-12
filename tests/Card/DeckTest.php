@@ -51,4 +51,31 @@ class DeckTest extends TestCase
         $this->assertEquals($drawnCard[0], $topCard[51]);
         $this->assertEquals(count($deck->showDeck()), 51);
     }
+
+    /**
+     * Construct deck2 object and verify that the object has the expected
+     * properties, use no arguments.
+     */
+    public function testCreateDeck2()
+    {
+        $deck = new Deck2();
+        $this->assertInstanceOf("\App\Card\Deck2", $deck);
+
+        $res = $deck->showDeck();
+        $this->assertNotEmpty($res);
+    }
+
+
+    /**
+     * Construct deck object and verify that the showCards method returns
+     * expected content
+     */
+    public function testsshowCards()
+    {
+        $deck = new Deck();
+        $this->assertInstanceOf("\App\Card\Deck", $deck);
+
+        $res = $deck->showCards();
+        $this->assertNotEmpty($res);
+    }
 }

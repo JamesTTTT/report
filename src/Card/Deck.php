@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-//use App\Card\Card;
+// use App\Card\Card;
 
 class Deck
 {
@@ -67,11 +67,7 @@ class Deck2 extends Deck
 {
     public function __construct()
     {
-        foreach ($this->suits as $suit) {
-            foreach ($this->values as $value) {
-                array_push($this->deck, new Card($value, $suit));
-            }
-        }
+        parent::__construct();
         array_push($this->deck, new Card(0, 'Joker'));
         array_push($this->deck, new Card(0, 'Joker'));
     }
