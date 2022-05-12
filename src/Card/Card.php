@@ -14,10 +14,8 @@ class Card
         $this->suite = $suite;
     }
 
-    // gets the value and suite
-    public function getDetails()
-    {
-        switch ($this->value) {
+    private function addNames($val){
+        switch ($val) {
             case 0:
                 $name = 'Jk';
                 break;
@@ -33,9 +31,19 @@ class Card
             case 14:
                 $name = 'A';
                 break;
-            default:
-                $name = $this->value;
         }
+        return $name;
+    }
+
+    // gets the value and suite
+    public function getDetails()
+    {
+        $name = $this->value;
+        
+        if($name > 10) {
+            $name = $this->addNames($this->value);
+        }
+
         $cardArray = [$this->value,$this->suite,$name];
         return $cardArray;
     }
