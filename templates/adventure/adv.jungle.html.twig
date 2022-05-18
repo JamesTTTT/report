@@ -1,37 +1,23 @@
 {% extends "adventure/adv.base.html.twig" %}
-{% block title %}Adventure Game{% endblock %}
+{% block title %}Jungle{% endblock %}
 
 {% block body %}
 {{ dump(_context) }}
     <article class="content">
-        <h1>Entrance</h1>
+        <h1>The Jungle</h1>
         {# <button type="submit" name="addPickaxe" /> #}
-        <div class="firstroom">
+        <div class="jungle">
         {% set pick = 'block' %}
         <form method="post">
-            <div class ="cave">
+            <div class ="parrot">
                 <div class ="item-container">
-                <button type="submit" name="enterCave" value="Enter">
-                <div class="enter"></div>
-                </button>
-            </div>
-            </div>
-            <div class ="pickaxe" style="display: {{pick}}">
-                <div class ="item-container">
-                <button type="submit" name="addPickaxe" value="Pickaxe">
-                <img src="../img/adventure/pick.png" width="60" alt="pickaxe">
-                </button onClick="{% set pick = 'none' %}">
-            </div>
-            </div>
-            <div class ="apple">
-                <div class ="item-container">
-                <button type="submit" name="addApple" value="Apple">
-                <img src="../img/adventure/apple.png" width="70" alt="apple">
+                <button type="submit" name="interactBird" value="Bird">
+                <img src="../img/adventure/parrot.png" width="60" alt="parrot">
                 </button>
             </div>
             </div>
             <div class ="back">
-            <div class ="item-container">
+                <div class ="item-container">
                 <button type="submit" name="back" value="Back">
                 <img src="../img/adventure/back.png" width="70" alt="back">
                 </button>

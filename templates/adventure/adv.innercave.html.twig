@@ -9,20 +9,6 @@
         <div class="secondroom">
         {% set pick = 'block' %}
         <form method="post">
-            {# <div class ="cave">
-                <div class ="item-container">
-                <button type="submit" name="enterCave" value="Enter">
-                <div class="enter"></div>
-                </button>
-            </div> #}
-            {# {# </div>
-            <div class ="pickaxe" style="display: {{pick}}">
-                <div class ="item-container">
-                <button type="submit" name="addPickaxe" value="Pickaxe">
-                <img src="../img/adventure/pick.png" width="60" alt="pickaxe">
-                </button onClick="{% set pick = 'none' %}">
-            </div> 
-            </div>#}
             <div class ="goblin">
                 <div class ="item-container">
                 <button type="submit" name="interactGoblin" value="Goblin">
@@ -31,6 +17,13 @@
                 </button>
             </div>
             </div>
+            <div class ="chest">
+                <div class ="item-container">
+                <button type="submit" name="interactChest" value="Chest">
+                <img src="../img/adventure/chest.png" width="120" alt="chest">
+                </button>
+            </div>
+            </div>            
             <div class ="back">
                 <div class ="item-container">
                 <button type="submit" name="back" value="Back">

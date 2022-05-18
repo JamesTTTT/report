@@ -130,6 +130,14 @@ body{
     width: 700px;
 }
 
+.jungle {
+    background-image: url('../img/adventure/jungle.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 700px;
+}
+
 .pickaxe{
     width: auto;
     right: -200px;
@@ -155,6 +163,20 @@ body{
     width: auto;
     right: -300px;
     bottom: -300px;
+    position: relative;
+}
+
+.chest{
+    width: auto;
+    right: -100px;
+    bottom: -350px;
+    position: relative;
+}
+
+.parrot{
+    width: auto;
+    right: -630px;
+    bottom: -100px;
     position: relative;
 }
 

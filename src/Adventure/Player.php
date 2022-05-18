@@ -22,8 +22,8 @@ class Player
         array_values($this->bag);
     }
 
-    public function useItem()
+    public function checkItem($item)
     {
-        return null; 
+        return in_array($item, $this->bag);
     }
 }
