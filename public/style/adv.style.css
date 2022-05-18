@@ -122,10 +122,76 @@ body{
     width: 700px;
 }
 
-.item-container {
-    border: 5px solid red;
+.secondroom {
+    background-image: url('../img/adventure/innercave.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 700px;
+}
+
+.pickaxe{
+    width: auto;
+    right: -200px;
+    bottom: -250px;
+    position: relative;
+}
+
+.apple{
+    width: auto;
+    right: -100px;
+    bottom: -400px;
+    position: relative;
+}
+
+.back {
+    width: auto;
+    right: -620px;
+    bottom: -450px;
+    position: relative;
+}
+
+.goblin{
+    width: auto;
+    right: -300px;
+    bottom: -300px;
+    position: relative;
+}
+
+.cave{
+    right: -540px;
+    bottom: -200px;
+    position: relative;
+}
+
+.enter {
     width: 90px;
+    height: 150px;
+}
+
+.item-container {
+    /* border: 5px solid red; */
     position: absolute;
-    right: 600px;
-    bottom: 200px;
+}
+
+.item-container button{
+    cursor: -webkit-grab; 
+    cursor: grab;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+}
+
+.info-log {
+    font-size: 2em;
+}
+
+.bag-item {
+    padding: 0 2em;
+}
+
+.bag {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
 }
