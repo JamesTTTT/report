@@ -31,6 +31,7 @@ class AdventureController extends AbstractController
 
         $pick = $session->get('pickaxe') ?? new \App\Adventure\Item("pickaxe","../img/adventure/icon/pick_icon.png");
         $apple = $session->get('apple') ?? new \App\Adventure\Item("apple","../img/adventure/icon/apple_icon.png");
+        $diamond = $session->get('diamond3') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
         $player = $session->get('advPlayer') ?? new \App\Adventure\Player();
         // $diamondCount = $session->get('diamondCount') ?? 0;
 
@@ -38,15 +39,16 @@ class AdventureController extends AbstractController
         $session->set('apple', $apple);
         $session->set('advPlayer', $player);
         $session->set('game', $game);
-
+        $session->set('diamond3', $diamond);
+        
         //$player = $session->get('advPlayer');
 
         $data = [
             'title' => 'entrance',
-            // 'game' => $game,
             'player' => $player,
             'pick' => $pick,
             'apple' => $apple,
+            'diamond' => $diamond,
             'bag' => $player->showBag(),
         ];
 
@@ -63,6 +65,7 @@ class AdventureController extends AbstractController
     {
         $addPick = $request->request->get('addPickaxe');
         $addApple = $request->request->get('addApple');
+        $addDiamond = $request->request->get('addDiamond');
         $entrance = $request->request->get('enterCave');
         $goBack = $request->request->get('back');
         $reset = $request->request->get('reset');
@@ -70,7 +73,15 @@ class AdventureController extends AbstractController
         $player = $session->get('advPlayer');
         $pickaxe = $session->get('pickaxe');
         $apple = $session->get('apple');
+        $diamond = $session->get('diamond3');
+        $game = $session->get('game');
 
+
+        if($addDiamond){
+            $player->addToBag($diamond);
+            $game->addOneDiamond();
+            $this->addFlash("info", "Added to bag: " . $diamond->getItemName());
+        }
         if($addPick) {
             $player->addToBag($pickaxe);
             $this->addFlash("info", "Added to bag: " . $pickaxe->getItemName());
@@ -139,6 +150,7 @@ class AdventureController extends AbstractController
         $openChest = $request->request->get('interactChest');
         $tradeGoblin = $request->request->get('interactGoblin');
         $addDiamond = $request->request->get('addDiamond');
+        $enterDungeon = $request->request->get('enterDungeon');
 
         $player = $session->get('advPlayer');
         $chest = $session->get('chest');
@@ -148,6 +160,10 @@ class AdventureController extends AbstractController
 
         if($goBack){
             return $this->redirectToRoute('entrance');
+        }
+
+        if($enterDungeon){
+            return $this->redirectToRoute('dungeon');
         }
 
         if($addDiamond){
@@ -192,11 +208,11 @@ class AdventureController extends AbstractController
     ): Response
     {      
         $apple = $session->get('apple');
-        $diamond = $session->get('diamond');
         $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/gold.png");
         $key = $session->get('key') ?? new \App\Adventure\Item("key","../img/adventure/icon/nyckel.png");
         $map = $session->get('map') ?? new \App\Adventure\Item("map","../img/adventure/icon/map.png");
         $freedom = $session->get('freedom') ?? new \App\Adventure\Item("freedom","../img/adventure/icon/map.png");
+        $diamond = $session->get('diamond4') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
 
         $parrot = $session->get('parrot') ?? new \App\Adventure\Event($apple, $key);
         $pirate = $session->get('pirate') ?? new \App\Adventure\Event($gold, $map);
@@ -209,10 +225,12 @@ class AdventureController extends AbstractController
         $session->set('key', $key);
         $session->set('gold', $gold);
         $session->set('jungle', $jungle);
+        $session->set('diamond4', $diamond);
 
         $data = [
             'title' => 'jungle',
             'player' => $player,
+            'diamond' => $diamond,
             'bag' => $player->showBag(),
         ];
 
@@ -231,15 +249,23 @@ class AdventureController extends AbstractController
         $feedParrot = $request->request->get('interactBird');
         $interactPirate = $request->request->get('interactPirate');
         $escapeJungle = $request->request->get('escapeJungle');
+        $addDiamond = $request->request->get('addDiamond');
 
         $player = $session->get('advPlayer');
         $parrot = $session->get('parrot');
         $pirate = $session->get('pirate');
         $jungle = $session->get('jungle');
         $game = $session->get('game');
+        $diamond = $session->get('diamond4');
 
         if($goBack){
             return $this->redirectToRoute('entrance');
+        }
+
+        if($addDiamond){
+            $player->addToBag($diamond);
+            $game->addOneDiamond();
+            $this->addFlash("info", "Added to bag: " . $diamond->getItemName());
         }
 
         if($escapeJungle) {
@@ -280,6 +306,57 @@ class AdventureController extends AbstractController
         }
 
         return $this->redirectToRoute('jungle');
+    }
+
+    /**
+     * @Route("/adventure/dungeon", name="dungeon", methods={"GET","HEAD"})
+     */
+    public function dungeon(
+        SessionInterface $session
+    ): Response
+    {   
+        $player = $session->get('advPlayer');
+        $diamond = $session->get('diamond5') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
+        // $game = $session->get('game');
+
+        $session->set('diamond5', $diamond);
+
+        $data = [
+            'title' => 'dungeon',
+            'player' => $player,
+            'diamond' => $diamond,
+            'bag' => $player->showBag(),
+
+        ];
+        return $this->render('adventure/adv.dungeon.html.twig', $data);
+    }
+
+    /**
+     * @Route("/adventure/dungeon", name="dungeon-process", methods={"POST"})
+     */
+    public function dungeonProcess(
+        SessionInterface $session,
+        Request $request,
+    ): Response
+    {   
+        $addDiamond = $request->request->get('addDiamond');
+        $back = $request->request->get('back');
+
+        $game = $session->get('game');
+        $diamond = $session->get('diamond5');
+        $player = $session->get('advPlayer');
+
+        if($addDiamond){
+            $player->addToBag($diamond);
+            $game->addOneDiamond();
+            $this->addFlash("info", "Added to bag: " . $diamond->getItemName());
+        }
+
+        if($back){
+            return $this->redirectToRoute('innercave');
+        }
+
+        return $this->redirectToRoute('dungeon');
     }
 
     /**

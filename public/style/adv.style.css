@@ -138,6 +138,14 @@ body{
     width: 700px;
 }
 
+.dungeon {
+    background-image: url('../img/adventure/dungeon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 700px;
+}
+
 .endscreen {
     background-image: url('../img/adventure/sunset.jpg');
     background-repeat: no-repeat;
@@ -181,6 +189,26 @@ body{
     position: relative;
 }
 
+.diamond2{
+    width: auto;
+    right: -0px;
+    bottom: -150px;
+    position: relative;
+}
+
+.diamond3{
+    width: auto;
+    right: -600px;
+    bottom: -0px;
+    position: relative;
+}
+
+.diamond4{
+    width: auto;
+    right: -20px;
+    bottom: -450px;
+    position: relative;
+}
 
 .back {
     width: auto;
@@ -221,6 +249,12 @@ body{
     right: -540px;
     bottom: -200px;
     position: relative;
+}
+
+.enterDungeon {
+    right: -270px;
+    bottom: -100px;
+    position: relative;   
 }
 
 .escJungle{

@@ -2,6 +2,11 @@
 {% block title %}Jungle{% endblock %}
 
 {% block body %}
+
+{% set Diavis = 'block' %}
+{% if diamond.getItem()[2] == true %}
+    {% set Diavis = 'none' %}
+{% endif %}
 {{ dump(_context) }}
     <article class="content">
         <h1>The Jungle</h1>
@@ -16,6 +21,15 @@
                 </button>
             </div>
             </div>
+
+            <div class ="diamond3" style="display: {{Diavis}}">
+                <div class ="item-container">
+                <button type="submit" name="addDiamond" value="Diamond">
+                <img src="../img/adventure/diamond.png" width="20" alt="diamond">
+                </button>
+            </div>
+            </div>
+
             <div class ="parrot">
                 <div class ="item-container">
                 <button type="submit" name="interactBird" value="Bird">
@@ -23,6 +37,7 @@
                 </button>
             </div>
             </div>
+
             <div class ="pirate">
                 <div class ="item-container">
                 <button type="submit" name="interactPirate" value="pirate">
@@ -30,6 +45,7 @@
                 </button>
             </div>
             </div>
+
             <div class ="back">
                 <div class ="item-container">
                 <button type="submit" name="back" value="Back">

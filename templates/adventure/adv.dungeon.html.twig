@@ -1,30 +1,21 @@
 {% extends "adventure/adv.base.html.twig" %}
-{% block title %}Cave {% endblock %}
+{% block title %}Jungle{% endblock %}
 
 {% block body %}
 
 {% set Diavis = 'block' %}
-{% if diamond2.getItem()[2] == true %}
+{% if diamond.getItem()[2] == true %}
     {% set Diavis = 'none' %}
 {% endif %}
-
 {# {{ dump(_context) }} #}
     <article class="content">
-        <h1>Inside The Cave</h1>
+        <h1>Dungeon</h1>
         {# <button type="submit" name="addPickaxe" /> #}
-        <div class="secondroom">
+        <div class="dungeon">
         {% set pick = 'block' %}
         <form method="post">
 
-            <div class ="enterDungeon">
-                <div class ="item-container">
-                <button type="submit" name="enterDungeon" value="enterDungeon">
-                <div class="escape"></div>
-                </button>
-            </div>
-            </div>           
-
-            <div class ="diamond" style="display: {{Diavis}}">
+            <div class ="diamond4" style="display: {{Diavis}}">
                 <div class ="item-container">
                 <button type="submit" name="addDiamond" value="Diamond">
                 <img src="../img/adventure/diamond.png" width="20" alt="diamond">
@@ -32,20 +23,6 @@
             </div>
             </div>
 
-            <div class ="goblin">
-                <div class ="item-container">
-                <button type="submit" name="interactGoblin" value="Goblin">
-                <img src="../img/adventure/goblin.png" width="120" alt="goblin">
-                </button>
-            </div>
-            </div>
-            <div class ="chest">
-                <div class ="item-container">
-                <button type="submit" name="interactChest" value="Chest">
-                <img src="../img/adventure/chest.png" width="120" alt="chest">
-                </button>
-            </div>
-            </div>            
             <div class ="back">
                 <div class ="item-container">
                 <button type="submit" name="back" value="Back">

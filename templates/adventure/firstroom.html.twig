@@ -5,6 +5,7 @@
 
 {% set Pickvis = 'block' %}
 {% set Applevis = 'block' %}
+{% set Diavis = 'block' %}
 
 {% if pick.getItem()[2] == true %}
     {% set Pickvis = 'none' %}
@@ -14,6 +15,9 @@
     {% set Applevis = 'none' %}
 {% endif %}
 
+{% if diamond.getItem()[2] == true %}
+    {% set Diavis = 'none' %}
+{% endif %}
 
 {# {{ dump(_context) }} #}
     <article class="content">
@@ -33,7 +37,7 @@
                 <div class ="item-container">
                 <button type="submit" name="addPickaxe" value="Pickaxe">
                 <img src="../img/adventure/pick.png" width="60" alt="pickaxe">
-                </button onClick="{% set pick = 'none' %}">
+                </button>
             </div>
             </div>
 
@@ -41,6 +45,14 @@
                 <div class ="item-container">
                 <button type="submit" name="addApple" value="Apple">
                 <img src="../img/adventure/apple.png" width="70" alt="apple">
+                </button>
+            </div>
+            </div>
+
+            <div class ="diamond2" style="display: {{Diavis}}">
+                <div class ="item-container">
+                <button type="submit" name="addDiamond" value="Diamond">
+                <img src="../img/adventure/diamond.png" width="20" alt="diamond">
                 </button>
             </div>
             </div>
