@@ -2,6 +2,12 @@
 {% block title %}Cave {% endblock %}
 
 {% block body %}
+
+{% set Diavis = 'block' %}
+{% if diamond2.getItem()[2] == true %}
+    {% set Diavis = 'none' %}
+{% endif %}
+
 {# {{ dump(_context) }} #}
     <article class="content">
         <h1>Inside The Cave</h1>
@@ -10,7 +16,7 @@
         {% set pick = 'block' %}
         <form method="post">
 
-            <div class ="diamond">
+            <div class ="diamond" style="display: {{Diavis}}">
                 <div class ="item-container">
                 <button type="submit" name="addDiamond" value="Diamond">
                 <img src="../img/adventure/diamond.png" width="20" alt="diamond">

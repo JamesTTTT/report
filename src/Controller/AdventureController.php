@@ -27,19 +27,26 @@ class AdventureController extends AbstractController
         SessionInterface $session
     ): Response
     {
+        $game = $session->get('game') ?? new \App\Adventure\Manager();
+
         $pick = $session->get('pickaxe') ?? new \App\Adventure\Item("pickaxe","../img/adventure/icon/pick_icon.png");
         $apple = $session->get('apple') ?? new \App\Adventure\Item("apple","../img/adventure/icon/apple_icon.png");
         $player = $session->get('advPlayer') ?? new \App\Adventure\Player();
+        // $diamondCount = $session->get('diamondCount') ?? 0;
 
         $session->set('pickaxe', $pick);
         $session->set('apple', $apple);
         $session->set('advPlayer', $player);
+        $session->set('game', $game);
 
         //$player = $session->get('advPlayer');
 
         $data = [
             'title' => 'entrance',
+            // 'game' => $game,
             'player' => $player,
+            'pick' => $pick,
+            'apple' => $apple,
             'bag' => $player->showBag(),
         ];
 
@@ -79,7 +86,7 @@ class AdventureController extends AbstractController
             return $this->redirectToRoute('jungle');
         }
         if($reset){
-            $session->clear();;
+            $session->clear();
         }
 
         return $this->redirectToRoute('entrance');
@@ -97,12 +104,15 @@ class AdventureController extends AbstractController
 
         $key = $session->get('key') ?? new \App\Adventure\Item("key","../img/adventure/icon/nyckel.png");
         $diamond = $session->get('diamond') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
+        $diamond2 = $session->get('diamond2') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
         $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/gold.png");
+
         $chest = $session->get('chest') ?? new \App\Adventure\Event($key, $diamond);
         $goblin = $session->get('goblin') ?? new \App\Adventure\Event($pickaxe, $gold);
 
         $session->set('chest', $chest);
         $session->set('diamond', $diamond);
+        $session->set('diamond2', $diamond2);
         $session->set('gold', $gold);
         $session->set('key', $key);
         $session->set('goblin', $goblin);
@@ -110,6 +120,7 @@ class AdventureController extends AbstractController
         $data = [
             'title' => 'cave',
             'player' => $player,
+            'diamond2' => $diamond2,
             'bag' => $player->showBag(),
         ];
 
@@ -127,13 +138,22 @@ class AdventureController extends AbstractController
         $goBack = $request->request->get('back');
         $openChest = $request->request->get('interactChest');
         $tradeGoblin = $request->request->get('interactGoblin');
+        $addDiamond = $request->request->get('addDiamond');
 
         $player = $session->get('advPlayer');
         $chest = $session->get('chest');
         $goblin = $session->get('goblin');
+        $diamond2 = $session->get('diamond2');
+        $game = $session->get('game');
 
         if($goBack){
             return $this->redirectToRoute('entrance');
+        }
+
+        if($addDiamond){
+            $player->addToBag($diamond2);
+            $game->addOneDiamond();
+            $this->addFlash("info", "Added to bag: " . $diamond2->getItemName());
         }
 
         if($tradeGoblin) {
@@ -150,6 +170,7 @@ class AdventureController extends AbstractController
 
         if($openChest) {
             if($chest->checkEvent($player)) {
+                $game->addOneDiamond();
                 $this->addFlash("info", "You find a diamond in the chest ");
             }
             elseif($chest->eventStatus()){
@@ -175,14 +196,18 @@ class AdventureController extends AbstractController
         $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/gold.png");
         $key = $session->get('key') ?? new \App\Adventure\Item("key","../img/adventure/icon/nyckel.png");
         $map = $session->get('map') ?? new \App\Adventure\Item("map","../img/adventure/icon/map.png");
+        $freedom = $session->get('freedom') ?? new \App\Adventure\Item("freedom","../img/adventure/icon/map.png");
+
         $parrot = $session->get('parrot') ?? new \App\Adventure\Event($apple, $key);
         $pirate = $session->get('pirate') ?? new \App\Adventure\Event($gold, $map);
-        $jungle = $session->get('jungle') ?? new \App\Adventure\Event($map, $diamond);
+        $jungle = $session->get('jungle') ?? new \App\Adventure\Event($map, $freedom);
+
         $player = $session->get('advPlayer');
 
         $session->set('parrot', $parrot);
         $session->set('pirate', $pirate);
         $session->set('key', $key);
+        $session->set('gold', $gold);
         $session->set('jungle', $jungle);
 
         $data = [
@@ -211,6 +236,7 @@ class AdventureController extends AbstractController
         $parrot = $session->get('parrot');
         $pirate = $session->get('pirate');
         $jungle = $session->get('jungle');
+        $game = $session->get('game');
 
         if($goBack){
             return $this->redirectToRoute('entrance');
@@ -219,6 +245,8 @@ class AdventureController extends AbstractController
         if($escapeJungle) {
             if($jungle->checkEvent($player)) {
                 $this->addFlash("info", "You navigate out of the jungle with your map! ");
+                $gameTime = $game->endTimer();
+                $session->set('gameTime', $gameTime);
                 return $this->redirectToRoute('ending');
             }
             else {
@@ -250,16 +278,46 @@ class AdventureController extends AbstractController
                 $this->addFlash("info", "The parrot is hungry");
             }
         }
+
         return $this->redirectToRoute('jungle');
     }
 
     /**
-     * @Route("/adventure/ending", name="ending")
+     * @Route("/adventure/ending", name="ending", methods={"GET","HEAD"})
      */
-    public function ending(): Response
-    {
-        return $this->render('adventure/adv.end.html.twig', [
-        ]);
+    public function ending(
+        SessionInterface $session
+    ): Response
+    {   
+        $game = $session->get('game');
+        $gameTime = $session->get('gameTime');
+        $diamonds = $game->getDiamondCount();
+        $score = $game->getScore($gameTime);
+        $data = [
+            'title' => 'ending',
+            'gametime' => $gameTime,
+            'diamonds' => $diamonds,
+            'score' => $score,
+        ];
+        return $this->render('adventure/adv.end.html.twig', $data);
+    }
+
+    /**
+     * @Route("/adventure/ending", name="ending-process", methods={"POST"})
+     */
+    public function endingProcess(
+        SessionInterface $session,
+        Request $request,
+    ): Response
+    {   
+        $bts = $request->request->get('backToStart');
+
+        if($bts){
+            $session->clear();
+            return $this->redirectToRoute('adventure');  
+        }
+
+        return $this->redirectToRoute('ending');
     }
 
 }

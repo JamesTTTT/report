@@ -9,7 +9,7 @@ class Player
     public function addToBag($item)
     {
         array_push($this->bag, $item);
-        $item->picked = True;
+        $item->pickItem();
     }
 
     public function showBag()
@@ -20,11 +20,19 @@ class Player
     public function deleteItem($item) {
         $key = array_search($item, $this->bag);
         unset($this->bag[$key]);
-        array_values($this->bag);
+        sort($this->bag);
     }
 
     public function checkItem($item)
     {
-        return in_array($item, $this->bag);
+        // return in_array($item, $this->bag);
+        foreach($this->bag as $baggedItem)
+        {
+            if($baggedItem->getItemName() === $item->getItemName())
+            {
+                return true;
+            }
+        }
+        return false; 
     }
 }

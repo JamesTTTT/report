@@ -28,4 +28,9 @@ class Item
         $itemData = [$this->name, $this->icon,$this->picked];
         return $itemData;
     }
+
+    public function pickItem()
+    {
+        $this->picked = true;
+    }
 }

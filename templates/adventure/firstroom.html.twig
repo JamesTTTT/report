@@ -5,20 +5,17 @@
 
 {% set Pickvis = 'block' %}
 {% set Applevis = 'block' %}
-{% for item in bag %}
-    {% if (item.getItem()[0] == 'pickaxe')
-    and item.getItem()[2] == true  %}
-        {% set Pickvis = 'none' %}
-    {% endif %}
-    {% if (item.getItem()[0] == 'apple')
-    and item.getItem()[2] == true  %}
-        {% set Applevis = 'none' %}
-    {% endif %}
+
+{% if pick.getItem()[2] == true %}
+    {% set Pickvis = 'none' %}
+{% endif %}
+
+{% if apple.getItem()[2] == true %}
+    {% set Applevis = 'none' %}
+{% endif %}
 
 
-{% endfor %}
-
-{{ dump(_context) }}
+{# {{ dump(_context) }} #}
     <article class="content">
         <h1>Entrance</h1>
         <div class="firstroom">

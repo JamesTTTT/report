@@ -11,7 +11,10 @@
         <form method="post">
             <div class="endmenu">
             <h2>The End</h2>
-            <button type="submit" name="backToStart" value="Back2start">Back to start</button>
+            <h3>Score: {{ score }}</h3>
+            <p>You finished the game in: {{ gametime }} seconds</p>
+            <p>You found: {{ diamonds }}/5 diamonds</p>
+            <button type="submit" name="backToStart" value="backToStart">Back to start</button>
             </div>
         </form>
         </div>
