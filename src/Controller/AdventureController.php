@@ -21,6 +21,30 @@ class AdventureController extends AbstractController
     }
 
     /**
+     * @Route("/adventure/setup", name="setup", methods={"GET","HEAD"})
+     */
+    public function setup(
+        SessionInterface $session
+    ): Response
+    {
+        return $this->render('adventure/adv.setup.html.twig', [
+        ]);
+    }
+    /**
+     * @Route("/adventure/setup", name="setup-process", methods={"POST"})
+     */
+    public function entranceProcess(
+        Request $request,
+        SessionInterface $session
+    ): Response
+    {
+
+
+        return $this->redirectToRoute('setup');
+    }
+
+
+    /**
      * @Route("/adventure/entrance", name="entrance", methods={"GET","HEAD"})
      */
     public function entrance(

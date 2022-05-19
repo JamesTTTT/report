@@ -1,0 +1,26 @@
+{% extends "adventure/adv.base.html.twig" %}
+{% block title %}Adventure Game Ending{% endblock %}
+
+{% block body %}
+    <article class="content">
+        <h1>Setup</h1>
+        <div class="setup">
+        <form method="post">
+            <div class="setup-page">
+            <label for="name">Enter Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <button type="submit" name="start" value="start">Ready</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="info-log">
+        {% for message in app.flashes('info') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+        {% endfor %}
+        </div>
+
+    </article>
+{% endblock %}
