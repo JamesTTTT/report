@@ -2,13 +2,28 @@
 {% block title %}Adventure Game{% endblock %}
 
 {% block body %}
+
+{% set Pickvis = 'block' %}
+{% set Applevis = 'block' %}
+{% for item in bag %}
+    {% if (item.getItem()[0] == 'pickaxe')
+    and item.getItem()[2] == true  %}
+        {% set Pickvis = 'none' %}
+    {% endif %}
+    {% if (item.getItem()[0] == 'apple')
+    and item.getItem()[2] == true  %}
+        {% set Applevis = 'none' %}
+    {% endif %}
+
+
+{% endfor %}
+
 {{ dump(_context) }}
     <article class="content">
         <h1>Entrance</h1>
-        {# <button type="submit" name="addPickaxe" /> #}
         <div class="firstroom">
-        {% set pick = 'block' %}
         <form method="post">
+
             <div class ="cave">
                 <div class ="item-container">
                 <button type="submit" name="enterCave" value="Enter">
@@ -16,20 +31,23 @@
                 </button>
             </div>
             </div>
-            <div class ="pickaxe" style="display: {{pick}}">
+
+            <div class ="pickaxe" style="display: {{Pickvis}}">
                 <div class ="item-container">
                 <button type="submit" name="addPickaxe" value="Pickaxe">
                 <img src="../img/adventure/pick.png" width="60" alt="pickaxe">
                 </button onClick="{% set pick = 'none' %}">
             </div>
             </div>
-            <div class ="apple">
+
+            <div class ="apple" style="display: {{Applevis}}">
                 <div class ="item-container">
                 <button type="submit" name="addApple" value="Apple">
                 <img src="../img/adventure/apple.png" width="70" alt="apple">
                 </button>
             </div>
             </div>
+
             <div class ="back">
             <div class ="item-container">
                 <button type="submit" name="back" value="Back">
@@ -37,6 +55,7 @@
                 </button>
             </div>
             </div>
+
             </form>
         </div>
 

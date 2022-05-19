@@ -9,6 +9,7 @@ class Player
     public function addToBag($item)
     {
         array_push($this->bag, $item);
+        $item->picked = True;
     }
 
     public function showBag()

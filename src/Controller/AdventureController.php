@@ -96,12 +96,14 @@ class AdventureController extends AbstractController
         $pickaxe = $session->get('pickaxe');
 
         $key = $session->get('key') ?? new \App\Adventure\Item("key","../img/adventure/icon/nyckel.png");
-        $diamond = $session->get('diamond') ?? new \App\Adventure\Item("diamond","../img/adventure/diamond.png");
-        $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/apple.png");
+        $diamond = $session->get('diamond') ?? new \App\Adventure\Item("diamond","../img/adventure/icon/diamond.png");
+        $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/gold.png");
         $chest = $session->get('chest') ?? new \App\Adventure\Event($key, $diamond);
         $goblin = $session->get('goblin') ?? new \App\Adventure\Event($pickaxe, $gold);
 
         $session->set('chest', $chest);
+        $session->set('diamond', $diamond);
+        $session->set('gold', $gold);
         $session->set('key', $key);
         $session->set('goblin', $goblin);
 
@@ -169,12 +171,19 @@ class AdventureController extends AbstractController
     ): Response
     {      
         $apple = $session->get('apple');
+        $diamond = $session->get('diamond');
+        $gold = $session->get('gold') ?? new \App\Adventure\Item("gold","../img/adventure/icon/gold.png");
         $key = $session->get('key') ?? new \App\Adventure\Item("key","../img/adventure/icon/nyckel.png");
+        $map = $session->get('map') ?? new \App\Adventure\Item("map","../img/adventure/icon/map.png");
         $parrot = $session->get('parrot') ?? new \App\Adventure\Event($apple, $key);
+        $pirate = $session->get('pirate') ?? new \App\Adventure\Event($gold, $map);
+        $jungle = $session->get('jungle') ?? new \App\Adventure\Event($map, $diamond);
         $player = $session->get('advPlayer');
 
         $session->set('parrot', $parrot);
+        $session->set('pirate', $pirate);
         $session->set('key', $key);
+        $session->set('jungle', $jungle);
 
         $data = [
             'title' => 'jungle',
@@ -195,13 +204,41 @@ class AdventureController extends AbstractController
     {   
         $goBack = $request->request->get('back');
         $feedParrot = $request->request->get('interactBird');
+        $interactPirate = $request->request->get('interactPirate');
+        $escapeJungle = $request->request->get('escapeJungle');
 
         $player = $session->get('advPlayer');
         $parrot = $session->get('parrot');
+        $pirate = $session->get('pirate');
+        $jungle = $session->get('jungle');
 
         if($goBack){
             return $this->redirectToRoute('entrance');
         }
+
+        if($escapeJungle) {
+            if($jungle->checkEvent($player)) {
+                $this->addFlash("info", "You navigate out of the jungle with your map! ");
+                return $this->redirectToRoute('ending');
+            }
+            else {
+                $this->addFlash("info", "You are too afraid to enter the jungle without a map!");
+            }
+
+        }
+
+        if($interactPirate) {
+            if($pirate->checkEvent($player)) {
+                $this->addFlash("info", "You buy a map to escape the jungle with your gold! ");
+            }
+            elseif($pirate->eventStatus()){
+                $this->addFlash("info", "The pirate bids you farewell");
+            }
+            else {
+                $this->addFlash("info", "The pirate is selling a map for gold");
+            }
+        }
+
         if($feedParrot) {
             if($parrot->checkEvent($player)) {
                 $this->addFlash("info", "The parrot ate the apple and gave you a key as thanks ");
@@ -212,10 +249,17 @@ class AdventureController extends AbstractController
             else {
                 $this->addFlash("info", "The parrot is hungry");
             }
-
-
         }
         return $this->redirectToRoute('jungle');
+    }
+
+    /**
+     * @Route("/adventure/ending", name="ending")
+     */
+    public function ending(): Response
+    {
+        return $this->render('adventure/adv.end.html.twig', [
+        ]);
     }
 
 }

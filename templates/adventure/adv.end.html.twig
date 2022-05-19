@@ -1,0 +1,37 @@
+{% extends "adventure/adv.base.html.twig" %}
+{% block title %}Adventure Game Ending{% endblock %}
+
+{% block body %}
+{{ dump(_context) }}
+    <article class="content">
+        <h1>The End, Thanks for Playing!!!</h1>
+        {# <button type="submit" name="addPickaxe" /> #}
+        <div class="endscreen">
+        {% set pick = 'block' %}
+        <form method="post">
+            <div class="endmenu">
+            <h2>The End</h2>
+            <button type="submit" name="backToStart" value="Back2start">Back to start</button>
+            </div>
+        </form>
+        </div>
+
+        <div class="info-log">
+        {% for message in app.flashes('info') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+        {% endfor %}
+        </div>
+
+        {# <h3>Your Bag:</h3>
+        <div class="bag">
+        {% for item in bag %}
+            <div class="bag-item">
+                <img src="{{item.getItem()[1]}}" width="40">
+                <p>{{item.getItem()[0]}}</p>
+            </div>
+        {% endfor %}
+        </div> #}
+    </article>
+{% endblock %}

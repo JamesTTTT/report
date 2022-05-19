@@ -2,18 +2,26 @@
 {% block title %}Cave {% endblock %}
 
 {% block body %}
-{{ dump(_context) }}
+{# {{ dump(_context) }} #}
     <article class="content">
         <h1>Inside The Cave</h1>
         {# <button type="submit" name="addPickaxe" /> #}
         <div class="secondroom">
         {% set pick = 'block' %}
         <form method="post">
+
+            <div class ="diamond">
+                <div class ="item-container">
+                <button type="submit" name="addDiamond" value="Diamond">
+                <img src="../img/adventure/diamond.png" width="20" alt="diamond">
+                </button>
+            </div>
+            </div>
+
             <div class ="goblin">
                 <div class ="item-container">
                 <button type="submit" name="interactGoblin" value="Goblin">
                 <img src="../img/adventure/goblin.png" width="120" alt="goblin">
-                <img src="../img/adventure/diamond.png" width="50" alt="goblin">
                 </button>
             </div>
             </div>

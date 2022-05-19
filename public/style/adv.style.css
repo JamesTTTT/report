@@ -138,6 +138,28 @@ body{
     width: 700px;
 }
 
+.endscreen {
+    background-image: url('../img/adventure/sunset.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 700px;
+}
+
+.endmenu {
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    right: -150px;
+    bottom: -50%;
+    position: relative;
+    padding: 2em 3em;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.305);
+}
+
 .pickaxe{
     width: auto;
     right: -200px;
@@ -152,6 +174,14 @@ body{
     position: relative;
 }
 
+.diamond{
+    width: auto;
+    right: -0px;
+    bottom: -450px;
+    position: relative;
+}
+
+
 .back {
     width: auto;
     right: -620px;
@@ -160,6 +190,13 @@ body{
 }
 
 .goblin{
+    width: auto;
+    right: -300px;
+    bottom: -300px;
+    position: relative;
+}
+
+.pirate{
     width: auto;
     right: -300px;
     bottom: -300px;
@@ -186,7 +223,18 @@ body{
     position: relative;
 }
 
+.escJungle{
+    right: -140px;
+    bottom: -160px;
+    position: relative;
+}
+
 .enter {
+    width: 90px;
+    height: 150px;
+}
+
+.escape {
     width: 90px;
     height: 150px;
 }

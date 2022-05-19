@@ -6,14 +6,14 @@ class Item
 {
     private string $name;
     private string $icon;
-    // private bool $status;
+    public bool $picked;
 
     // Claass constructor for cards
     public function __construct($name, $icon)
     {
         $this->name = $name;
         $this->icon = $icon;
-        // $this->status = false;
+        $this->picked = false;
     }
 
     // gets the value and suite
@@ -25,7 +25,7 @@ class Item
     // gets the value and suite
     public function getItem()
     {
-        $itemData = [$this->name, $this->icon];
+        $itemData = [$this->name, $this->icon,$this->picked];
         return $itemData;
     }
 }
