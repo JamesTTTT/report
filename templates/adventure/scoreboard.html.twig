@@ -1,0 +1,30 @@
+{% extends "adventure/adv.base.html.twig" %}
+{% block title %}Adventure Game Ending{% endblock %}
+
+{% block body %}
+{# {{ dump(_context) }} #}
+    <article class="content">
+        <h1>Scoreboard:</h1>
+        <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Diamonds</th>
+            <th>Time</th>
+            <th>Delete</th>
+        </tr>
+        {% for item in scoreboard%}
+            <tr>
+              <td>{{item.name}}</td>
+              <td>{{item.score}} pts</td>
+              <td>{{item.diamonds}}/5</td>
+              <td>{{item.time}} seconds</td>
+              <td>
+                {# <a href="{{url("book_delete_by_id", {id: book.id }) }}">Delete</a> #}
+              </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    </article>
+{% endblock %}

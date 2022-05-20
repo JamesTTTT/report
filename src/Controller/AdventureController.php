@@ -33,13 +33,23 @@ class AdventureController extends AbstractController
     /**
      * @Route("/adventure/setup", name="setup-process", methods={"POST"})
      */
-    public function entranceProcess(
+    public function setupProcess(
         Request $request,
         SessionInterface $session
     ): Response
     {
+        $session->clear();
+        $name = $request->request->get('name');
+        $start = $request->request->get('start');
+        $reset = $request->request->get('reset');
+        $session->set('name', $name);
 
-
+        if($start){
+            return $this->redirectToRoute('entrance');
+        }
+        if($reset){
+            $session->clear();
+        }
         return $this->redirectToRoute('setup');
     }
 
@@ -122,6 +132,7 @@ class AdventureController extends AbstractController
         }
         if($reset){
             $session->clear();
+            return $this->redirectToRoute('adventure');
         }
 
         return $this->redirectToRoute('entrance');
@@ -391,6 +402,7 @@ class AdventureController extends AbstractController
     ): Response
     {   
         $game = $session->get('game');
+        $name = $session->get('name');
         $gameTime = $session->get('gameTime');
         $diamonds = $game->getDiamondCount();
         $score = $game->getScore($gameTime);
@@ -398,6 +410,7 @@ class AdventureController extends AbstractController
             'title' => 'ending',
             'gametime' => $gameTime,
             'diamonds' => $diamonds,
+            'name' => $name,
             'score' => $score,
         ];
         return $this->render('adventure/adv.end.html.twig', $data);
@@ -412,10 +425,14 @@ class AdventureController extends AbstractController
     ): Response
     {   
         $bts = $request->request->get('backToStart');
+        $save = $request->request->get('save');
 
         if($bts){
             $session->clear();
             return $this->redirectToRoute('adventure');  
+        }
+        if($save){
+            return $this->redirectToRoute('save-score');
         }
 
         return $this->redirectToRoute('ending');
