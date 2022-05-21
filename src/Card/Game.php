@@ -13,7 +13,8 @@ class Game
         $this->bank = $bank;
     }
 
-    private function getVal() {
+    private function getVal()
+    {
         $player = $this->player;
         $bank = $this->bank;
 
@@ -29,7 +30,7 @@ class Game
      * Compares the scores between the player and bank
      */
     public function compare()
-    { 
+    {
         $val = $this->getVal();
         $pval = $val[0];
         $bval = $val[1];

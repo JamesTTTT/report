@@ -20,7 +20,7 @@
               <td>{{item.diamonds}}/5</td>
               <td>{{item.time}} seconds</td>
               <td>
-                {# <a href="{{url("book_delete_by_id", {id: book.id }) }}">Delete</a> #}
+                <a href="{{url("score_delete_by_id", {id: item.id }) }}">Delete</a>
               </td>
             </tr>
         {% endfor %}

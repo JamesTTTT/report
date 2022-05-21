@@ -12,24 +12,27 @@ class Manager
         $this->diamonds = 0;
     }
 
-    public function endTimer() {
+    public function endTimer()
+    {
         $time_end = microtime(true);
         $time = $time_end - $this->time_start;
         return ceil($time);
     }
 
-    public function addOneDiamond() {
+    public function addOneDiamond()
+    {
         $this->diamonds = $this->diamonds + 1;
     }
 
-    public function getDiamondCount() {
+    public function getDiamondCount()
+    {
         return $this->diamonds;
     }
 
-    public function getScore(int $time) {
+    public function getScore(int $time)
+    {
         $diamonds = $this->diamonds;
-        $score = $diamonds/$time *10000;
+        $score = $diamonds / $time * 10000;
         return ceil($score);
     }
-
 }

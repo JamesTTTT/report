@@ -12,25 +12,27 @@ class Event
     {
         $this->key = $key;
         $this->reward = $reward;
-        $this->status = False;
+        $this->status = false;
     }
 
-    public function checkEvent($player){
-        if($player->checkItem($this->key)){
+    public function checkEvent($player)
+    {
+        if ($player->checkItem($this->key)) {
             $player->deleteItem($this->key);
             $player->addToBag($this->reward);
-            $this->status = True;
-            return True;
+            $this->status = true;
+            return true;
         }
-        return False;
+        return false;
     }
 
-    public function eventStatus(){
+    public function eventStatus()
+    {
         return $this->status;
     }
 
-    private function getKey(){
+    private function getKey()
+    {
         return $this->key;
     }
-
 }

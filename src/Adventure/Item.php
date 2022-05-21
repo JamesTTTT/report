@@ -6,7 +6,7 @@ class Item
 {
     private string $name;
     private string $icon;
-    public bool $picked;
+    private bool $picked;
 
     // Claass constructor for cards
     public function __construct($name, $icon)

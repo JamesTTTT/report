@@ -3,12 +3,16 @@
 
 {% block body %}
     <article class="content">
+        <div class ="cavelurkermenu">
         <h1>Cave Lurker Adventure Game</h1>
         <div class ="text-body">
-            <ul>
+            <ul class="gamemenu">
                 <li><a href="{{ url("setup") }}">Play The Game</a></li>
                 <li><a href="{{ url("scoreboard") }}">Scoreboard</a></li>
+                <li><a href="{{ url("about-proj") }}">About</a></li>
                 
             </ul>
+        </div>
+        </div>
     </article>
 {% endblock %}

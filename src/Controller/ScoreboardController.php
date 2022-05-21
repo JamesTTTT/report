@@ -14,12 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 class ScoreboardController extends AbstractController
 {
     /**
-     * @Route("/adventure/scoreboard", name="scoreboard")
+     * @Route("/proj/scoreboard", name="scoreboard")
      */
     public function scoreboard(
         ScoreboardRepository $scoreBoardRepository
-    ): Response
-    {
+    ): Response {
         $scoreboards = $scoreBoardRepository->findAll();
         $data = [
             'title' => 'view_score',
@@ -29,22 +28,19 @@ class ScoreboardController extends AbstractController
     }
 
     /**
-     * @Route("/adventure/savescore", name="save-score", methods={"GET","HEAD"})
+     * @Route("/proj/savescore", name="save-score", methods={"GET","HEAD"})
      */
     public function saveScore(
         ManagerRegistry $doctrine,
         SessionInterface $session,
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
-        $scoreboard = new Scoreboard;
+        $scoreboard = new Scoreboard();
         $game = $session->get('game');
         $name = $session->get('name');
         $gameTime = $session->get('gameTime');
         $diamonds = $game->getDiamondCount();
         $score = $game->getScore($gameTime);
-
-
         $scoreboard->setName($name);
         $scoreboard->setScore($score);
         $scoreboard->setTime($gameTime);
@@ -54,5 +50,21 @@ class ScoreboardController extends AbstractController
         $entityManager->flush();
         return $this->render('adventure/save_score.html.twig', [
         ]);
+    }
+
+    /**
+     * @Route("/proj/scoreboard/delete/{id}", name="score_delete_by_id")
+     */
+    public function deleteBookById(
+        ManagerRegistry $doctrine,
+        int $id
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $scoreboard = $entityManager->getRepository(Scoreboard::class)->find($id);
+
+        $entityManager->remove($scoreboard);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('scoreboard');
     }
 }

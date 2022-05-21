@@ -17,7 +17,8 @@ class Player
         return $this->bag;
     }
 
-    public function deleteItem($item) {
+    public function deleteItem($item)
+    {
         $key = array_search($item, $this->bag);
         unset($this->bag[$key]);
         sort($this->bag);
@@ -26,13 +27,11 @@ class Player
     public function checkItem($item)
     {
         // return in_array($item, $this->bag);
-        foreach($this->bag as $baggedItem)
-        {
-            if($baggedItem->getItemName() === $item->getItemName())
-            {
+        foreach ($this->bag as $baggedItem) {
+            if ($baggedItem->getItemName() === $item->getItemName()) {
                 return true;
             }
         }
-        return false; 
+        return false;
     }
 }

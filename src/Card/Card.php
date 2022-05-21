@@ -14,7 +14,8 @@ class Card
         $this->suite = $suite;
     }
 
-    private function addNames($val){
+    private function addNames($val)
+    {
         $name = "";
         switch ($val) {
             case 0:
@@ -40,8 +41,8 @@ class Card
     public function getDetails()
     {
         $name = $this->value;
-        
-        if($name > 10 || $name === 0) {
+
+        if ($name > 10 || $name === 0) {
             $name = $this->addNames($this->value);
         }
 
