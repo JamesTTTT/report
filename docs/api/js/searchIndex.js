@@ -1,280 +1,165 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\App\\Card\\Card",
-            "name": "Card",
-            "summary": "",
-            "url": "classes/App-Card-Card.html"
+            "fqsen": "\\App\\Adventure\\Event",
+            "name": "Event",
+            "summary": "Event\u0020Class.",
+            "url": "classes/App-Adventure-Event.html"
         },                {
-            "fqsen": "\\App\\Card\\Card\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Card-Card.html#method___construct"
+            "summary": "Creates\u0020an\u0020event\u0020the\u0020player\u0020can\u0020interact\u0020with.",
+            "url": "classes/App-Adventure-Event.html#method___construct"
         },                {
-            "fqsen": "\\App\\Card\\Card\u003A\u003AgetDetails\u0028\u0029",
-            "name": "getDetails",
-            "summary": "",
-            "url": "classes/App-Card-Card.html#method_getDetails"
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003AcheckEvent\u0028\u0029",
+            "name": "checkEvent",
+            "summary": "Checks\u0020if\u0020player\u0020has\u0020the\u0020correct\u0020item\u0020in\u0020the\u0020bag\nif\u0020so\u0020deletetes\u0020the\u0020item\u0020with\u0020deleteItem\u0020method.",
+            "url": "classes/App-Adventure-Event.html#method_checkEvent"
         },                {
-            "fqsen": "\\App\\Card\\Card\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/App-Card-Card.html#property_value"
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003AeventStatus\u0028\u0029",
+            "name": "eventStatus",
+            "summary": "returns\u0020the\u0020status\u0020bool",
+            "url": "classes/App-Adventure-Event.html#method_eventStatus"
         },                {
-            "fqsen": "\\App\\Card\\Card\u003A\u003A\u0024suite",
-            "name": "suite",
-            "summary": "",
-            "url": "classes/App-Card-Card.html#property_suite"
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "returns\u0020the\u0020key\u0020object",
+            "url": "classes/App-Adventure-Event.html#method_getKey"
         },                {
-            "fqsen": "\\App\\Card\\Deck",
-            "name": "Deck",
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003A\u0024key",
+            "name": "key",
             "summary": "",
-            "url": "classes/App-Card-Deck.html"
+            "url": "classes/App-Adventure-Event.html#property_key"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003A\u0024reward",
+            "name": "reward",
+            "summary": "",
+            "url": "classes/App-Adventure-Event.html#property_reward"
+        },                {
+            "fqsen": "\\App\\Adventure\\Event\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "",
+            "url": "classes/App-Adventure-Event.html#property_status"
+        },                {
+            "fqsen": "\\App\\Adventure\\Manager",
+            "name": "Manager",
+            "summary": "Manager\u0020Class.",
+            "url": "classes/App-Adventure-Manager.html"
+        },                {
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#method___construct"
+            "summary": "Creates\u0020manager\u0020for\u0020the\u0020game.",
+            "url": "classes/App-Adventure-Manager.html#method___construct"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003AshowDeck\u0028\u0029",
-            "name": "showDeck",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#method_showDeck"
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003AendTimer\u0028\u0029",
+            "name": "endTimer",
+            "summary": "Ends\u0020the\u0020game\u0020timer.",
+            "url": "classes/App-Adventure-Manager.html#method_endTimer"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003AshowCardObj\u0028\u0029",
-            "name": "showCardObj",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#method_showCardObj"
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003AaddOneDiamond\u0028\u0029",
+            "name": "addOneDiamond",
+            "summary": "Add\u0020a\u0020single\u0020diamond\u0020to\u0020the\u0020diamond\u0020count",
+            "url": "classes/App-Adventure-Manager.html#method_addOneDiamond"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003AshowCards\u0028\u0029",
-            "name": "showCards",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#method_showCards"
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003AgetDiamondCount\u0028\u0029",
+            "name": "getDiamondCount",
+            "summary": "displays\u0020the\u0020amount\u0020of\u0020diamonds",
+            "url": "classes/App-Adventure-Manager.html#method_getDiamondCount"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003AshuffleDeck\u0028\u0029",
-            "name": "shuffleDeck",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#method_shuffleDeck"
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003AgetScore\u0028\u0029",
+            "name": "getScore",
+            "summary": "Calculates\u0020the\u0020score\u0020by\u0020dividing\u0020the\u0020amount\u0020of\u0020diamonds\u0020with\nthe\u0020time\u0020multiplied\u0020by\u0020ten\u0020thousand.",
+            "url": "classes/App-Adventure-Manager.html#method_getScore"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003AdrawCard\u0028\u0029",
-            "name": "drawCard",
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003A\u0024time_start",
+            "name": "time_start",
             "summary": "",
-            "url": "classes/App-Card-Deck.html#method_drawCard"
+            "url": "classes/App-Adventure-Manager.html#property_time_start"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003A\u0024suits",
-            "name": "suits",
+            "fqsen": "\\App\\Adventure\\Manager\u003A\u003A\u0024diamonds",
+            "name": "diamonds",
             "summary": "",
-            "url": "classes/App-Card-Deck.html#property_suits"
+            "url": "classes/App-Adventure-Manager.html#property_diamonds"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003A\u0024values",
-            "name": "values",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#property_values"
+            "fqsen": "\\App\\Adventure\\Item",
+            "name": "Item",
+            "summary": "Item\u0020Class.",
+            "url": "classes/App-Adventure-Item.html"
         },                {
-            "fqsen": "\\App\\Card\\Deck\u003A\u003A\u0024deck",
-            "name": "deck",
-            "summary": "",
-            "url": "classes/App-Card-Deck.html#property_deck"
-        },                {
-            "fqsen": "\\App\\Card\\Deck2",
-            "name": "Deck2",
-            "summary": "",
-            "url": "classes/App-Card-Deck2.html"
-        },                {
-            "fqsen": "\\App\\Card\\Deck2\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Card-Deck2.html#method___construct"
+            "summary": "Construct\u0020method\ncreates\u0020item\u0020with\u0020a\u0020name\u0020and\u0020path\u0020to\u0020icon\u0020image.",
+            "url": "classes/App-Adventure-Item.html#method___construct"
         },                {
-            "fqsen": "\\App\\Card\\Game",
-            "name": "Game",
-            "summary": "",
-            "url": "classes/App-Card-Game.html"
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003AgetItemName\u0028\u0029",
+            "name": "getItemName",
+            "summary": "returns\u0020the\u0020name\u0020of\u0020item",
+            "url": "classes/App-Adventure-Item.html#method_getItemName"
         },                {
-            "fqsen": "\\App\\Card\\Game\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Card-Game.html#method___construct"
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003AgetItem\u0028\u0029",
+            "name": "getItem",
+            "summary": "returns\u0020the\u0020item\u0020data",
+            "url": "classes/App-Adventure-Item.html#method_getItem"
         },                {
-            "fqsen": "\\App\\Card\\Game\u003A\u003Acompare\u0028\u0029",
-            "name": "compare",
-            "summary": "",
-            "url": "classes/App-Card-Game.html#method_compare"
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003ApickItem\u0028\u0029",
+            "name": "pickItem",
+            "summary": "sets\u0020the\u0020items\u0020picked\u0020status\u0020to\u0020true",
+            "url": "classes/App-Adventure-Item.html#method_pickItem"
         },                {
-            "fqsen": "\\App\\Card\\Game\u003A\u003A\u0024player",
-            "name": "player",
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024name",
+            "name": "name",
             "summary": "",
-            "url": "classes/App-Card-Game.html#property_player"
+            "url": "classes/App-Adventure-Item.html#property_name"
         },                {
-            "fqsen": "\\App\\Card\\Game\u003A\u003A\u0024bank",
-            "name": "bank",
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024icon",
+            "name": "icon",
             "summary": "",
-            "url": "classes/App-Card-Game.html#property_bank"
+            "url": "classes/App-Adventure-Item.html#property_icon"
         },                {
-            "fqsen": "\\App\\Card\\Player",
+            "fqsen": "\\App\\Adventure\\Item\u003A\u003A\u0024picked",
+            "name": "picked",
+            "summary": "",
+            "url": "classes/App-Adventure-Item.html#property_picked"
+        },                {
+            "fqsen": "\\App\\Adventure\\Player",
             "name": "Player",
-            "summary": "",
-            "url": "classes/App-Card-Player.html"
+            "summary": "Player\u0020Class.",
+            "url": "classes/App-Adventure-Player.html"
         },                {
-            "fqsen": "\\App\\Card\\Player\u003A\u003AdealPlayer\u0028\u0029",
-            "name": "dealPlayer",
-            "summary": "",
-            "url": "classes/App-Card-Player.html#method_dealPlayer"
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AaddToBag\u0028\u0029",
+            "name": "addToBag",
+            "summary": "If\u0020the\u0020player\u0020clicks\u0020on\u0020an\u0020item\nthe\u0020item\u0020will\u0020be\u0020added\u0020to\u0020the\u0020bag\u0020array.",
+            "url": "classes/App-Adventure-Player.html#method_addToBag"
         },                {
-            "fqsen": "\\App\\Card\\Player\u003A\u003AshowHand\u0028\u0029",
-            "name": "showHand",
-            "summary": "",
-            "url": "classes/App-Card-Player.html#method_showHand"
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AshowBag\u0028\u0029",
+            "name": "showBag",
+            "summary": "Shows\u0020the\u0020bag",
+            "url": "classes/App-Adventure-Player.html#method_showBag"
         },                {
-            "fqsen": "\\App\\Card\\Player\u003A\u003AhandValue\u0028\u0029",
-            "name": "handValue",
-            "summary": "",
-            "url": "classes/App-Card-Player.html#method_handValue"
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AdeleteItem\u0028\u0029",
+            "name": "deleteItem",
+            "summary": "Searches\u0020bag\u0020for\u0020given\u0020item\u0020index\u0020and\nwhen\u0020the\u0020item\u0020is\u0020found\u0020removes\u0020it\u0020with\u0020unset.",
+            "url": "classes/App-Adventure-Player.html#method_deleteItem"
         },                {
-            "fqsen": "\\App\\Card\\Player\u003A\u003A\u0024hand",
-            "name": "hand",
-            "summary": "",
-            "url": "classes/App-Card-Player.html#property_hand"
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003AcheckItem\u0028\u0029",
+            "name": "checkItem",
+            "summary": "Checks\u0020if\u0020item\u0020exists\u0020in\u0020the\u0020bag\nby\u0020comparing\u0020item\u0020names\u0020of\u0020given\u0020item\u0020and\u0020all\u0020the\u0020items\nin\u0020the\u0020bag\u0020until\u0020its\u0020found.",
+            "url": "classes/App-Adventure-Player.html#method_checkItem"
         },                {
-            "fqsen": "\\App\\Controller\\CardController",
-            "name": "CardController",
+            "fqsen": "\\App\\Adventure\\Player\u003A\u003A\u0024bag",
+            "name": "bag",
             "summary": "",
-            "url": "classes/App-Controller-CardController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003Acard\u0028\u0029",
-            "name": "card",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_card"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003Adeck\u0028\u0029",
-            "name": "deck",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_deck"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003Adeck2\u0028\u0029",
-            "name": "deck2",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_deck2"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003Ashuffle\u0028\u0029",
-            "name": "shuffle",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_shuffle"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003Adraw\u0028\u0029",
-            "name": "draw",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_draw"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003AdrawNumb\u0028\u0029",
-            "name": "drawNumb",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_drawNumb"
-        },                {
-            "fqsen": "\\App\\Controller\\CardController\u003A\u003AdealPlayer\u0028\u0029",
-            "name": "dealPlayer",
-            "summary": "",
-            "url": "classes/App-Controller-CardController.html#method_dealPlayer"
-        },                {
-            "fqsen": "\\App\\Controller\\GameController",
-            "name": "GameController",
-            "summary": "",
-            "url": "classes/App-Controller-GameController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\GameController\u003A\u003Agame\u0028\u0029",
-            "name": "game",
-            "summary": "",
-            "url": "classes/App-Controller-GameController.html#method_game"
-        },                {
-            "fqsen": "\\App\\Controller\\GameController\u003A\u003Aplay\u0028\u0029",
-            "name": "play",
-            "summary": "",
-            "url": "classes/App-Controller-GameController.html#method_play"
-        },                {
-            "fqsen": "\\App\\Controller\\GameController\u003A\u003Aprocess\u0028\u0029",
-            "name": "process",
-            "summary": "",
-            "url": "classes/App-Controller-GameController.html#method_process"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonApiController",
-            "name": "JsonApiController",
-            "summary": "",
-            "url": "classes/App-Controller-JsonApiController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonApiController\u003A\u003AapiDeck\u0028\u0029",
-            "name": "apiDeck",
-            "summary": "",
-            "url": "classes/App-Controller-JsonApiController.html#method_apiDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\ReportController",
-            "name": "ReportController",
-            "summary": "",
-            "url": "classes/App-Controller-ReportController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\ReportController\u003A\u003Ahome\u0028\u0029",
-            "name": "home",
-            "summary": "",
-            "url": "classes/App-Controller-ReportController.html#method_home"
-        },                {
-            "fqsen": "\\App\\Controller\\ReportController\u003A\u003Aabout\u0028\u0029",
-            "name": "about",
-            "summary": "",
-            "url": "classes/App-Controller-ReportController.html#method_about"
-        },                {
-            "fqsen": "\\App\\Controller\\ReportController\u003A\u003Areport\u0028\u0029",
-            "name": "report",
-            "summary": "",
-            "url": "classes/App-Controller-ReportController.html#method_report"
-        },                {
-            "fqsen": "\\App\\Kernel",
-            "name": "Kernel",
-            "summary": "",
-            "url": "classes/App-Kernel.html"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice",
-            "name": "Dice",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003Aroll\u0028\u0029",
-            "name": "roll",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#method_roll"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetAsString\u0028\u0029",
-            "name": "getAsString",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#method_getAsString"
-        },                {
-            "fqsen": "\\App\\Dice\\Dice\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/App-Dice-Dice.html#property_value"
+            "url": "classes/App-Adventure-Player.html#property_bag"
         },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\App\\Card",
-            "name": "Card",
+            "fqsen": "\\App\\Adventure",
+            "name": "Adventure",
             "summary": "",
-            "url": "namespaces/app-card.html"
-        },                {
-            "fqsen": "\\App\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/app-controller.html"
-        },                {
-            "fqsen": "\\App\\Dice",
-            "name": "Dice",
-            "summary": "",
-            "url": "namespaces/app-dice.html"
+            "url": "namespaces/app-adventure.html"
         },                {
             "fqsen": "\\App",
             "name": "App",
