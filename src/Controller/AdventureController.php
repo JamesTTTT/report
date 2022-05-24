@@ -14,8 +14,10 @@ class AdventureController extends AbstractController
     /**
      * @Route("/proj", name="adventure")
      */
-    public function game(): Response
-    {
+    public function game(
+        SessionInterface $session
+    ): Response {
+        $session->clear();
         return $this->render('adventure/adv.home.html.twig', [
         ]);
     }

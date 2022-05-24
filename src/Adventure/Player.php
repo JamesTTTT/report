@@ -9,7 +9,7 @@ namespace App\Adventure;
  */
 class Player
 {
-    private $bag = [];
+    private array $bag = [];
 
     /**
      * If the player clicks on an item
@@ -26,7 +26,7 @@ class Player
 
     /**
      * Shows the bag
-     * @return array (Item bag)
+     * @return array<object> (Item bag)
      */
     public function showBag()
     {
@@ -42,7 +42,7 @@ class Player
      */
     public function deleteItem($item)
     {
-        $key = array_search($item, $this->bag,true);
+        $key = array_search($item, $this->bag, true);
         unset($this->bag[$key]);
         sort($this->bag);
     }

@@ -39,7 +39,7 @@ class Item
 
     /**
      * returns the item data
-     * @return array (item name, item icon and picked status)
+     * @return array<mixed> (item name, item icon and picked status)
      */
     public function getItem()
     {

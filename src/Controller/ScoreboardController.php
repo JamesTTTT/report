@@ -74,18 +74,17 @@ class ScoreboardController extends AbstractController
     public function resetDb(
         ManagerRegistry $doctrine,
         ScoreboardRepository $scoreBoardRepository
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $scoreboards = $scoreBoardRepository->findAll();
 
-        foreach ($scoreboards as $score){
+        foreach ($scoreboards as $score) {
             $entityManager->remove($score);
         }
 
         $entityManager->flush();
 
-        
+
         return $this->redirectToRoute('scoreboard');
     }
 }

@@ -9,9 +9,9 @@ namespace App\Adventure;
  */
 class Event
 {
-    private $key;
-    private $reward;
-    private $status;
+    private object $key;
+    private object $reward;
+    private bool $status;
 
     /**
      * Creates an event the player can interact with.
@@ -56,12 +56,12 @@ class Event
         return $this->status;
     }
 
-    /**
-     * returns the key object
-     * @return object
-     */
-    private function getKey()
-    {
-        return $this->key;
-    }
+    // /**
+    //  * returns the key object
+    //  * @return object
+    //  */
+    // private function getKey()
+    // {
+    //     return $this->key;
+    // }
 }

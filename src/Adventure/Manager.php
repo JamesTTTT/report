@@ -2,7 +2,6 @@
 
 namespace App\Adventure;
 
-
 /**
  * Manager Class.
  *
@@ -10,7 +9,7 @@ namespace App\Adventure;
  */
 class Manager
 {
-    private $time_start;
+    private float $timeStart;
     private int $diamonds;
 
     /**
@@ -20,7 +19,7 @@ class Manager
      */
     public function __construct()
     {
-        $this->time_start = microtime(true);
+        $this->timeStart = microtime(true);
         $this->diamonds = 0;
     }
 
@@ -32,8 +31,8 @@ class Manager
      */
     public function endTimer()
     {
-        $time_end = microtime(true);
-        $time = $time_end - $this->time_start;
+        $timeEnd = microtime(true);
+        $time = $timeEnd - $this->timeStart;
         return ceil($time);
     }
 
