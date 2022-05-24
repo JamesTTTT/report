@@ -55,7 +55,7 @@ class ScoreboardController extends AbstractController
     /**
      * @Route("/proj/scoreboard/delete/{id}", name="score_delete_by_id")
      */
-    public function deleteBookById(
+    public function deleteScoreById(
         ManagerRegistry $doctrine,
         int $id
     ): Response {
@@ -65,6 +65,27 @@ class ScoreboardController extends AbstractController
         $entityManager->remove($scoreboard);
         $entityManager->flush();
 
+        return $this->redirectToRoute('scoreboard');
+    }
+
+    /**
+     * @Route("/proj/reset", name="resetDb")
+     */
+    public function resetDb(
+        ManagerRegistry $doctrine,
+        ScoreboardRepository $scoreBoardRepository
+    ): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $scoreboards = $scoreBoardRepository->findAll();
+
+        foreach ($scoreboards as $score){
+            $entityManager->remove($score);
+        }
+
+        $entityManager->flush();
+
+        
         return $this->redirectToRoute('scoreboard');
     }
 }

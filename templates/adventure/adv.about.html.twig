@@ -9,7 +9,7 @@
             <ul>
                 <li><a href="https://github.com/JamesTTTT/report">Github</a></li>
                 <li><a href="https://www.student.bth.se/~jata20/dbwebb-kurser/mvc/me/report/docs/api/namespaces/app-adventure.html">PHPdoc</a></li>
-                <li>PHPmetrics</li>
+                <li><a href="https://www.student.bth.se/~jata20/dbwebb-kurser/mvc/me/report/docs/metrics/">PHPmetrics</a></li>
                 <li><a href="https://scrutinizer-ci.com/g/JamesTTTT/report/?branch=main">Scrutinizer</a></li>
             </ul>
             <h2>Projekt Breskrivning</h2>
@@ -18,7 +18,10 @@
             <p>Efter du har klarat ut spelet presenteras du med hur många sekunder det tog dig för att klara spelet, hur många diamanter du hittade och en score. Du kan välja att gå tillbaka till start eller spara ditt resultat. Om du klickar ”Save your score” så sparas de resultatet genom ORM till scoreboard databasen. I menyn kan du klicka ”Scoreboard” och där kan du se alla resultat som har sparats tidigare. För att starta om sessionen går du bara tillbaka till menyn och klickar ”Play The Game” eller ”Reset” knappen i footern medan du är i spelet. </p>
             <p>Spelet använder sig av fyra nya klasser ”Player”, ”Item”, ”Game” och ”Event”. Player klassen används till att hantera items i spelarens väska. Det finns en array vart item objekten läggs in i när dem plockas upp. Klassen item används för alla sakerna man plockar upp och lägger i sin väska. När man skapar ett item objekt så måste man ange ett namn och sökväg till item ikon. Om man klickar på ett item sätts ”picked” boolean till true och det är så twig vet om den ska gömma en item div i spelet. Game objektet startar timer, håller koll på diamanter och räknar ut score genom att fördela tiden med antalet diamanter gånger 10 000 och sedan avrunda upp. Event klassen är till alla saker man kan integrera med. Event tar en nyckel item och en belönings item som argument. Event objektet kollar om spelaren har rätt nyckel item i sin väska och om det stämmer ersätts de item med ett nytt. </p>
             <h2>Kodkvalité</h2>
-            <p></p>
+            <p>För att säkra projektets kodkvalité har jag försökt att dela upp koden i mindre metoder och i fler klasser. Stora klasser med komplexa metoder är både ”fult” och gör koden mindre återanvändbar. Jag har haft ett öga på scrutinizer varje gång jag gör en commit för att se hur mycket mer eller mindre komplex koden har blivit efter en ändring. Att dela upp koden i mindre metoder har hjälpt mest för att höja kodkvalitén och har gjort koden mer användbar. Det som har dragit ner kodkvalitén mest för mig har varit kontroller filen till spelet men har valt att ignorera de och lägga all fokus på mina klasser. Jag har lagt mitt fokus mest på complexity i scrutinizer då jag känner att det är viktigt att inte ha för tjocka metoder och har undvikt att skriva om kod. </p>
+            <h2>DELETE THE SCOREBOARD</h2>
+            <p>Are you sure you want to clear the scoreboard?</p>
+            <p><a href="{{ url('resetDb') }}">Yes i want to delete it all!</a></p>
         </div>
     </article>
 {% endblock %}
